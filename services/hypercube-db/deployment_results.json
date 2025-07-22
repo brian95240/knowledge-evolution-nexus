@@ -1,0 +1,519 @@
+[
+  {
+    "id": "deploy_1746743373",
+    "version": "1.0.0",
+    "environment": "staging",
+    "start_time": "2025-05-08T22:29:33.621899",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "failed",
+        "checks": {
+          "config_validation": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.621913",
+            "metrics": {
+              "duration": 5.35935334751366,
+              "resource_usage": {
+                "cpu": 72.84796883782082,
+                "memory": 79.4601708670966
+              }
+            }
+          },
+          "resource_check": {
+            "status": "failed",
+            "timestamp": "2025-05-08T22:29:33.621936",
+            "metrics": {
+              "duration": 4.682340929740284,
+              "resource_usage": {
+                "cpu": 56.87438971929829,
+                "memory": 70.36468961391557
+              }
+            }
+          },
+          "backup": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.621944",
+            "metrics": {
+              "duration": 6.194660215601213,
+              "resource_usage": {
+                "cpu": 78.42276827236793,
+                "memory": 60.37502027829896
+              }
+            }
+          }
+        },
+        "duration": 67.63874288571475
+      }
+    ],
+    "status": "failed",
+    "error": "Pre-flight checks failed",
+    "end_time": "2025-05-08T22:29:33.621958",
+    "rollback": {
+      "deployment_id": "deploy_1746743373",
+      "status": "success",
+      "steps": {
+        "stop_service": {
+          "status": "success",
+          "timestamp": "2025-05-08T22:29:33.621962",
+          "metrics": {
+            "duration": 3.993610897944512,
+            "resource_usage": {
+              "cpu": 75.43561870398302,
+              "memory": 61.06646262184803
+            }
+          }
+        },
+        "restore_backup": {
+          "status": "success",
+          "timestamp": "2025-05-08T22:29:33.621969",
+          "metrics": {
+            "duration": 3.6625154682721357,
+            "resource_usage": {
+              "cpu": 52.11151451104796,
+              "memory": 60.2801536336851
+            }
+          }
+        },
+        "start_service": {
+          "status": "success",
+          "timestamp": "2025-05-08T22:29:33.621976",
+          "metrics": {
+            "duration": 4.1025717233527335,
+            "resource_usage": {
+              "cpu": 63.228853464217124,
+              "memory": 97.26114490576205
+            }
+          }
+        }
+      },
+      "duration": 64.95908000295383
+    }
+  },
+  {
+    "id": "deploy_1746743373",
+    "version": "1.0.1",
+    "environment": "staging",
+    "start_time": "2025-05-08T22:29:33.621989",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.621993",
+            "metrics": {
+              "duration": 4.206854811574377,
+              "resource_usage": {
+                "cpu": 52.956763913020644,
+                "memory": 68.68805567453656
+              }
+            }
+          },
+          "resource_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.621999",
+            "metrics": {
+              "duration": 5.513958349189902,
+              "resource_usage": {
+                "cpu": 66.04501867583704,
+                "memory": 58.729654261543345
+              }
+            }
+          },
+          "backup": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622006",
+            "metrics": {
+              "duration": 3.6049994440939024,
+              "resource_usage": {
+                "cpu": 60.18783269440925,
+                "memory": 65.13534037441316
+              }
+            }
+          }
+        },
+        "duration": 53.21687628627194
+      },
+      {
+        "name": "deployment",
+        "version": "1.0.1",
+        "status": "success",
+        "steps": {
+          "stop_service": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622016",
+            "metrics": {
+              "duration": 4.6786861287327355,
+              "resource_usage": {
+                "cpu": 59.05216440109759,
+                "memory": 77.98965522776791
+              }
+            }
+          },
+          "update_binaries": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622023",
+            "metrics": {
+              "duration": 4.961180732628983,
+              "resource_usage": {
+                "cpu": 51.60981763369256,
+                "memory": 80.29584780882658
+              }
+            }
+          },
+          "update_config": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622029",
+            "metrics": {
+              "duration": 4.808327147806053,
+              "resource_usage": {
+                "cpu": 42.67906898651403,
+                "memory": 73.92763119836998
+              }
+            }
+          },
+          "start_service": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622035",
+            "metrics": {
+              "duration": 6.2128057370336585,
+              "resource_usage": {
+                "cpu": 63.35148367344164,
+                "memory": 67.80464941691947
+              }
+            }
+          }
+        },
+        "duration": 161.91771437633787
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622045",
+            "metrics": {
+              "duration": 5.007697104068689,
+              "resource_usage": {
+                "cpu": 53.411816925377124,
+                "memory": 68.82661946592646
+              }
+            }
+          },
+          "performance_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622051",
+            "metrics": {
+              "duration": 2.858520650577758,
+              "resource_usage": {
+                "cpu": 76.85024134684843,
+                "memory": 72.40952636420366
+              }
+            }
+          },
+          "integration_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622057",
+            "metrics": {
+              "duration": 5.92587342986971,
+              "resource_usage": {
+                "cpu": 66.90493313176552,
+                "memory": 63.49321943620673
+              }
+            }
+          }
+        },
+        "duration": 81.18928247995044
+      }
+    ],
+    "status": "success",
+    "end_time": "2025-05-08T22:29:33.622065"
+  },
+  {
+    "id": "deploy_1746743373",
+    "version": "1.0.0",
+    "environment": "production",
+    "start_time": "2025-05-08T22:29:33.622069",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622072",
+            "metrics": {
+              "duration": 5.496153824338997,
+              "resource_usage": {
+                "cpu": 62.97206598687901,
+                "memory": 64.43149595057257
+              }
+            }
+          },
+          "resource_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622078",
+            "metrics": {
+              "duration": 5.47726383700496,
+              "resource_usage": {
+                "cpu": 60.75238153589757,
+                "memory": 63.552634357190705
+              }
+            }
+          },
+          "backup": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622084",
+            "metrics": {
+              "duration": 6.606249961289883,
+              "resource_usage": {
+                "cpu": 66.2606494334294,
+                "memory": 72.66561955227374
+              }
+            }
+          }
+        },
+        "duration": 61.12757916039749
+      },
+      {
+        "name": "deployment",
+        "version": "1.0.0",
+        "status": "success",
+        "steps": {
+          "stop_service": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622093",
+            "metrics": {
+              "duration": 4.095879987958064,
+              "resource_usage": {
+                "cpu": 74.59288609952769,
+                "memory": 72.5496242137496
+              }
+            }
+          },
+          "update_binaries": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622099",
+            "metrics": {
+              "duration": 5.786053583679196,
+              "resource_usage": {
+                "cpu": 56.736481100034645,
+                "memory": 59.345381722371215
+              }
+            }
+          },
+          "update_config": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622104",
+            "metrics": {
+              "duration": 5.206987191172729,
+              "resource_usage": {
+                "cpu": 71.84022041424026,
+                "memory": 65.87573909559588
+              }
+            }
+          },
+          "start_service": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622110",
+            "metrics": {
+              "duration": 4.159246581747672,
+              "resource_usage": {
+                "cpu": 61.098987307493864,
+                "memory": 77.20644433470638
+              }
+            }
+          }
+        },
+        "duration": 137.00329639459707
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622120",
+            "metrics": {
+              "duration": 4.213646521470743,
+              "resource_usage": {
+                "cpu": 59.744072934829234,
+                "memory": 68.03309436059806
+              }
+            }
+          },
+          "performance_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622126",
+            "metrics": {
+              "duration": 3.67206461047316,
+              "resource_usage": {
+                "cpu": 59.45565734329268,
+                "memory": 68.1926742774589
+              }
+            }
+          },
+          "integration_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622131",
+            "metrics": {
+              "duration": 3.1378099727664863,
+              "resource_usage": {
+                "cpu": 65.68874939230807,
+                "memory": 56.72614900116127
+              }
+            }
+          }
+        },
+        "duration": 74.52415363853727
+      }
+    ],
+    "status": "success",
+    "end_time": "2025-05-08T22:29:33.622139"
+  },
+  {
+    "id": "deploy_1746743373",
+    "version": "1.0.1",
+    "environment": "production",
+    "start_time": "2025-05-08T22:29:33.622143",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622146",
+            "metrics": {
+              "duration": 6.577624630370892,
+              "resource_usage": {
+                "cpu": 58.601920776149676,
+                "memory": 62.00341689601567
+              }
+            }
+          },
+          "resource_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622152",
+            "metrics": {
+              "duration": 4.699673759248879,
+              "resource_usage": {
+                "cpu": 58.591611040757414,
+                "memory": 68.59438375781654
+              }
+            }
+          },
+          "backup": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622157",
+            "metrics": {
+              "duration": 4.124054774752783,
+              "resource_usage": {
+                "cpu": 55.80799433461496,
+                "memory": 58.89283174324896
+              }
+            }
+          }
+        },
+        "duration": 70.82510775194095
+      },
+      {
+        "name": "deployment",
+        "version": "1.0.1",
+        "status": "success",
+        "steps": {
+          "stop_service": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622166",
+            "metrics": {
+              "duration": 3.854017849321829,
+              "resource_usage": {
+                "cpu": 65.22729615733834,
+                "memory": 66.82553274832759
+              }
+            }
+          },
+          "update_binaries": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622172",
+            "metrics": {
+              "duration": 5.863915075654886,
+              "resource_usage": {
+                "cpu": 51.45595950501172,
+                "memory": 74.23816274975228
+              }
+            }
+          },
+          "update_config": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622178",
+            "metrics": {
+              "duration": 4.63520384007362,
+              "resource_usage": {
+                "cpu": 56.72430507550943,
+                "memory": 87.58993993411741
+              }
+            }
+          },
+          "start_service": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622183",
+            "metrics": {
+              "duration": 5.207811725934534,
+              "resource_usage": {
+                "cpu": 39.14134953708354,
+                "memory": 71.18670421209454
+              }
+            }
+          }
+        },
+        "duration": 151.4346629077732
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622192",
+            "metrics": {
+              "duration": 6.324644702686154,
+              "resource_usage": {
+                "cpu": 58.32384509794281,
+                "memory": 69.3963924004571
+              }
+            }
+          },
+          "performance_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622198",
+            "metrics": {
+              "duration": 5.56864302366101,
+              "resource_usage": {
+                "cpu": 62.30310571861911,
+                "memory": 83.5911006370686
+              }
+            }
+          },
+          "integration_check": {
+            "status": "success",
+            "timestamp": "2025-05-08T22:29:33.622204",
+            "metrics": {
+              "duration": 3.7521994730675443,
+              "resource_usage": {
+                "cpu": 57.70740751331668,
+                "memory": 84.97462407442448
+              }
+            }
+          }
+        },
+        "duration": 109.70366078018938
+      }
+    ],
+    "status": "success",
+    "end_time": "2025-05-08T22:29:33.622212"
+  }
+]

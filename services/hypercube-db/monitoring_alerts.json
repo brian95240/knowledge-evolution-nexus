@@ -1,0 +1,35 @@
+[
+  {
+    "id": "alert_0",
+    "timestamp": "2025-05-08T22:36:00.673725",
+    "category": "system",
+    "metric": "cpu_usage",
+    "value": 87.12402560409834,
+    "level": "warning",
+    "channels": [
+      "slack"
+    ]
+  },
+  {
+    "id": "alert_1",
+    "timestamp": "2025-05-08T22:46:00.673725",
+    "category": "system",
+    "metric": "memory_usage",
+    "value": 75.04561292859671,
+    "level": "warning",
+    "channels": [
+      "slack"
+    ]
+  },
+  {
+    "id": "alert_2",
+    "timestamp": "2025-05-08T23:01:00.673725",
+    "category": "system",
+    "metric": "cpu_usage",
+    "value": 80.91447812105328,
+    "level": "warning",
+    "channels": [
+      "slack"
+    ]
+  }
+]

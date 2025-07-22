@@ -1,0 +1,352 @@
+[
+  {
+    "timestamp": "2025-05-08T22:31:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 74.14252788516062,
+        "memory_usage": 56.49611423435119,
+        "disk_usage": 60.72518564337868,
+        "load_average": 2.920864953006569
+      },
+      "application": {
+        "response_time": 122.90806416478075,
+        "error_rate": 0.0056925580861472026,
+        "throughput": 967.5980264326781,
+        "active_connections": 473.5467554392507
+      },
+      "database": {
+        "query_time": 55.81151785384179,
+        "active_transactions": 57.49764292435823,
+        "connection_pool": 91.1678382355773,
+        "replication_lag": 79.99321742458784
+      },
+      "network": {
+        "bandwidth_usage": 54.70627694168016,
+        "packet_loss": 0.001009991092019103,
+        "latency": 3.7699381588513345,
+        "active_connections": 1080.572351311351
+      },
+      "quantum": {
+        "optimization_time": 204.64296804812602,
+        "solution_quality": 0.9490664421966042,
+        "resource_efficiency": 0.9017260884197213,
+        "convergence_rate": 0.873278960301929
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T22:36:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 87.12402560409834,
+        "memory_usage": 64.2571969830118,
+        "disk_usage": 60.621830929426736,
+        "load_average": 2.5684487363125745
+      },
+      "application": {
+        "response_time": 67.35518751282967,
+        "error_rate": 0.003212781962841878,
+        "throughput": 868.0131472381588,
+        "active_connections": 524.3464804889428
+      },
+      "database": {
+        "query_time": 53.43042430754789,
+        "active_transactions": 100.54553584276083,
+        "connection_pool": 80.32156935226438,
+        "replication_lag": 129.69480426218905
+      },
+      "network": {
+        "bandwidth_usage": 59.21413557364344,
+        "packet_loss": 0.001130747362672633,
+        "latency": 7.076568702349412,
+        "active_connections": 1040.2760702234568
+      },
+      "quantum": {
+        "optimization_time": 190.31619249186977,
+        "solution_quality": 0.9791034000542959,
+        "resource_efficiency": 0.8580649245879566,
+        "convergence_rate": 0.8660985309543804
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T22:41:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 71.58709019045094,
+        "memory_usage": 43.28319545872578,
+        "disk_usage": 63.27690709835013,
+        "load_average": 3.337473742848003
+      },
+      "application": {
+        "response_time": 156.50823362816624,
+        "error_rate": 0.005725312372808046,
+        "throughput": 1010.2128487532583,
+        "active_connections": 627.5320639799054
+      },
+      "database": {
+        "query_time": 56.22041650946086,
+        "active_transactions": 104.66338898029413,
+        "connection_pool": 55.96558260395407,
+        "replication_lag": 105.46063671065994
+      },
+      "network": {
+        "bandwidth_usage": 51.22703526091096,
+        "packet_loss": 0.0009358790979605769,
+        "latency": 6.599396802754612,
+        "active_connections": 1017.7966028608449
+      },
+      "quantum": {
+        "optimization_time": 218.20714451796204,
+        "solution_quality": 0.9588358323427524,
+        "resource_efficiency": 0.77072869697226,
+        "convergence_rate": 0.8942021218708602
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T22:46:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 50.35248574400185,
+        "memory_usage": 75.04561292859671,
+        "disk_usage": 57.65167045001758,
+        "load_average": 2.4435419422298734
+      },
+      "application": {
+        "response_time": 108.21571220486537,
+        "error_rate": 0.005957401595189047,
+        "throughput": 1044.7125860482965,
+        "active_connections": 536.2082744230847
+      },
+      "database": {
+        "query_time": 46.26910177492952,
+        "active_transactions": 105.97309558076661,
+        "connection_pool": 82.71518577444031,
+        "replication_lag": 153.7949976850597
+      },
+      "network": {
+        "bandwidth_usage": 56.290714564668804,
+        "packet_loss": 0.0011549237915301762,
+        "latency": 5.112249640241855,
+        "active_connections": 984.8719749740275
+      },
+      "quantum": {
+        "optimization_time": 188.2682593222709,
+        "solution_quality": 0.9739312345186946,
+        "resource_efficiency": 0.7899386063796892,
+        "convergence_rate": 0.8621385207653385
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T22:51:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 70.51161881643648,
+        "memory_usage": 63.254328478373864,
+        "disk_usage": 58.92291376637978,
+        "load_average": 2.2024791614459756
+      },
+      "application": {
+        "response_time": 113.78448318957011,
+        "error_rate": 0.0027111633088217936,
+        "throughput": 1038.436202817891,
+        "active_connections": 427.14458769759216
+      },
+      "database": {
+        "query_time": 54.38955021258966,
+        "active_transactions": 108.09843197371869,
+        "connection_pool": 72.80247240719628,
+        "replication_lag": 105.2197716487353
+      },
+      "network": {
+        "bandwidth_usage": 64.16152977159057,
+        "packet_loss": 0.0008479897791336701,
+        "latency": 6.614223415312893,
+        "active_connections": 1043.1253665658107
+      },
+      "quantum": {
+        "optimization_time": 211.7620399178259,
+        "solution_quality": 0.9780347542022609,
+        "resource_efficiency": 0.865888463399272,
+        "convergence_rate": 0.893829302884297
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T22:56:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 76.19165236723293,
+        "memory_usage": 64.31268428809047,
+        "disk_usage": 63.60474283218001,
+        "load_average": 2.7672891471204064
+      },
+      "application": {
+        "response_time": 117.5380903067992,
+        "error_rate": 0.004320412675854058,
+        "throughput": 974.243242774735,
+        "active_connections": 552.1588756328994
+      },
+      "database": {
+        "query_time": 39.12579144470002,
+        "active_transactions": 89.30788047788867,
+        "connection_pool": 89.83349719901577,
+        "replication_lag": 127.27125552812464
+      },
+      "network": {
+        "bandwidth_usage": 49.31338549037484,
+        "packet_loss": 0.0008602161789527904,
+        "latency": 5.351915908517597,
+        "active_connections": 1310.1893080288505
+      },
+      "quantum": {
+        "optimization_time": 217.7004410405732,
+        "solution_quality": 0.9368229711364621,
+        "resource_efficiency": 0.820342177937835,
+        "convergence_rate": 0.913261088314734
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T23:01:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 80.91447812105328,
+        "memory_usage": 69.33790176818535,
+        "disk_usage": 66.61526590442034,
+        "load_average": 2.6592120598903533
+      },
+      "application": {
+        "response_time": 117.76238685587892,
+        "error_rate": 0.006184423180601619,
+        "throughput": 1066.2790903235864,
+        "active_connections": 471.23776427899946
+      },
+      "database": {
+        "query_time": 51.0841834383811,
+        "active_transactions": 70.67828888558905,
+        "connection_pool": 89.84519244592785,
+        "replication_lag": 111.30905309395771
+      },
+      "network": {
+        "bandwidth_usage": 59.56191584376815,
+        "packet_loss": 0.0008069416801598157,
+        "latency": 3.823991374885215,
+        "active_connections": 918.348737403063
+      },
+      "quantum": {
+        "optimization_time": 217.8955561496815,
+        "solution_quality": 0.9293971374706971,
+        "resource_efficiency": 0.9399385876900974,
+        "convergence_rate": 0.9310315113065022
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T23:06:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 55.481625716509086,
+        "memory_usage": 67.00130691816038,
+        "disk_usage": 63.09207086183462,
+        "load_average": 3.7234746521275954
+      },
+      "application": {
+        "response_time": 89.64465493073594,
+        "error_rate": 0.005315815728721293,
+        "throughput": 1070.599964618848,
+        "active_connections": 500.5032974661677
+      },
+      "database": {
+        "query_time": 64.16971579789463,
+        "active_transactions": 97.60780268386561,
+        "connection_pool": 68.33797658616629,
+        "replication_lag": 100.64528916494619
+      },
+      "network": {
+        "bandwidth_usage": 52.742175690186016,
+        "packet_loss": 0.0011830697810936545,
+        "latency": 7.259080401312807,
+        "active_connections": 1123.5598355695638
+      },
+      "quantum": {
+        "optimization_time": 182.22780696335244,
+        "solution_quality": 0.9507500942050162,
+        "resource_efficiency": 0.8094849488658282,
+        "convergence_rate": 0.899192130502414
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T23:11:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 68.15879685707633,
+        "memory_usage": 73.96029948249556,
+        "disk_usage": 62.66511322362041,
+        "load_average": 2.477916451181078
+      },
+      "application": {
+        "response_time": 92.35862879477337,
+        "error_rate": 0.0049961684282470485,
+        "throughput": 1000.537069668423,
+        "active_connections": 455.2846181335545
+      },
+      "database": {
+        "query_time": 45.75011834331045,
+        "active_transactions": 63.90267796075478,
+        "connection_pool": 82.02038494761851,
+        "replication_lag": 142.3457872404481
+      },
+      "network": {
+        "bandwidth_usage": 59.93539236328246,
+        "packet_loss": 0.0005770215570673571,
+        "latency": 5.069299778839746,
+        "active_connections": 1101.4319068420489
+      },
+      "quantum": {
+        "optimization_time": 151.95404464929308,
+        "solution_quality": 0.9699084233208676,
+        "resource_efficiency": 0.8645017441606159,
+        "convergence_rate": 0.9489949097505879
+      }
+    }
+  },
+  {
+    "timestamp": "2025-05-08T23:16:00.673725",
+    "metrics": {
+      "system": {
+        "cpu_usage": 59.590401017636815,
+        "memory_usage": 69.82438153128102,
+        "disk_usage": 59.362756676448065,
+        "load_average": 3.3717171072826075
+      },
+      "application": {
+        "response_time": 67.5741146847463,
+        "error_rate": 0.00545558208246353,
+        "throughput": 1063.3063498577812,
+        "active_connections": 437.78607661556777
+      },
+      "database": {
+        "query_time": 39.33336730449568,
+        "active_transactions": 93.28763931526696,
+        "connection_pool": 91.98180289755639,
+        "replication_lag": 105.91455013987432
+      },
+      "network": {
+        "bandwidth_usage": 64.41595160074753,
+        "packet_loss": 0.001119896107121947,
+        "latency": 6.274168585861552,
+        "active_connections": 858.0121323380727
+      },
+      "quantum": {
+        "optimization_time": 168.50132981275829,
+        "solution_quality": 0.9583857492134379,
+        "resource_efficiency": 0.901791491334508,
+        "convergence_rate": 0.9196000195311007
+      }
+    }
+  }
+]

@@ -1,0 +1,246 @@
+[
+  {
+    "deployment_id": "canary_1746743656",
+    "version": "1.2.0",
+    "environment": "staging",
+    "strategy": "canary",
+    "status": "failed",
+    "steps": [
+      {
+        "timestamp": "2025-05-08T22:34:16.488423",
+        "increment": 5,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.005360050593298999,
+          "latency": 102.73210238926836,
+          "cpu": 65.40553741562506,
+          "memory": 78.36955342868994
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488471",
+        "increment": 10,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.005663600306482927,
+          "latency": 119.24843727907191,
+          "cpu": 78.50272082714092,
+          "memory": 73.25342343505577
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488482",
+        "increment": 25,
+        "status": "failed",
+        "metrics": {
+          "error_rate": 0.0058470212997645335,
+          "latency": 153.87366426682183,
+          "cpu": 76.95752401433353,
+          "memory": 68.67565332038518
+        },
+        "action": "rollback"
+      }
+    ],
+    "rollback_triggered": true
+  },
+  {
+    "deployment_id": "canary_1746743656",
+    "version": "1.2.1",
+    "environment": "staging",
+    "strategy": "canary",
+    "status": "failed",
+    "steps": [
+      {
+        "timestamp": "2025-05-08T22:34:16.488494",
+        "increment": 5,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.003918439885067202,
+          "latency": 96.39511541732526,
+          "cpu": 82.21961704415072,
+          "memory": 55.740033545759125
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488502",
+        "increment": 10,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.0018626301938130829,
+          "latency": 103.88469194670694,
+          "cpu": 68.25519368625523,
+          "memory": 64.47956619174784
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488509",
+        "increment": 25,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.004152502360699207,
+          "latency": 124.94053053900276,
+          "cpu": 66.90628127458251,
+          "memory": 69.54631629609898
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488516",
+        "increment": 50,
+        "status": "failed",
+        "metrics": {
+          "error_rate": 0.006131651332295838,
+          "latency": 167.04469451293488,
+          "cpu": 66.2330985484296,
+          "memory": 69.61007654801425
+        },
+        "action": "rollback"
+      }
+    ],
+    "rollback_triggered": true
+  },
+  {
+    "deployment_id": "canary_1746743656",
+    "version": "1.2.0",
+    "environment": "production",
+    "strategy": "canary",
+    "status": "success",
+    "steps": [
+      {
+        "timestamp": "2025-05-08T22:34:16.488525",
+        "increment": 5,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.005292560931305729,
+          "latency": 131.8006949086813,
+          "cpu": 61.976567083257976,
+          "memory": 60.22637250648368
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488532",
+        "increment": 10,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.005741908018280091,
+          "latency": 107.38556343149423,
+          "cpu": 82.46177629775988,
+          "memory": 56.60170370567047
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488539",
+        "increment": 25,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.003437341090363043,
+          "latency": 76.007895633414,
+          "cpu": 75.07173172479034,
+          "memory": 71.54983658978932
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488546",
+        "increment": 50,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.0066411291776149114,
+          "latency": 94.14893708067335,
+          "cpu": 79.2107254798131,
+          "memory": 72.44596561558258
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488552",
+        "increment": 100,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.004576236110439016,
+          "latency": 66.23371670655771,
+          "cpu": 62.670714414870595,
+          "memory": 60.23090667377055
+        },
+        "action": "deploy"
+      }
+    ],
+    "rollback_triggered": false
+  },
+  {
+    "deployment_id": "canary_1746743656",
+    "version": "1.2.1",
+    "environment": "production",
+    "strategy": "canary",
+    "status": "success",
+    "steps": [
+      {
+        "timestamp": "2025-05-08T22:34:16.488561",
+        "increment": 5,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.002652678586743528,
+          "latency": 69.53416108234677,
+          "cpu": 84.6268087199519,
+          "memory": 71.54750291463304
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488568",
+        "increment": 10,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.0030661028646368623,
+          "latency": 92.92667990311517,
+          "cpu": 67.15430268564386,
+          "memory": 66.33628290179105
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488575",
+        "increment": 25,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.007702427471339683,
+          "latency": 105.0973536446216,
+          "cpu": 71.47537075188664,
+          "memory": 61.298733832555385
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488581",
+        "increment": 50,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.006471247325900716,
+          "latency": 111.54216721907974,
+          "cpu": 78.71764719999514,
+          "memory": 73.87175098259294
+        },
+        "action": "deploy"
+      },
+      {
+        "timestamp": "2025-05-08T22:34:16.488587",
+        "increment": 100,
+        "status": "success",
+        "metrics": {
+          "error_rate": 0.009097333063468136,
+          "latency": 101.76761777266067,
+          "cpu": 54.020348818339926,
+          "memory": 66.34881120332275
+        },
+        "action": "deploy"
+      }
+    ],
+    "rollback_triggered": false
+  }
+]

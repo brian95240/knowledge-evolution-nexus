@@ -1,0 +1,162 @@
+{
+  "ken_core_algorithms": {
+    "component_name": "ken_core_algorithms",
+    "repository": "ken-core",
+    "extraction_ratio": 1.0,
+    "priority": 10,
+    "integration_target": "backend/core/algorithms",
+    "enhancement_contribution": 5.2,
+    "api_endpoints": [
+      "/api/components/ken-core-algorithms/status",
+      "/api/components/ken-core-algorithms/execute",
+      "/api/components/ken-core-algorithms/configure",
+      "/api/components/ken-core-algorithms/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "vertex_optimization": {
+    "component_name": "vertex_optimization",
+    "repository": "vertex-pipeline",
+    "extraction_ratio": 0.65,
+    "priority": 8,
+    "integration_target": "services/vertex-pipeline/optimization",
+    "enhancement_contribution": 3.8,
+    "api_endpoints": [
+      "/api/components/vertex-optimization/status",
+      "/api/components/vertex-optimization/execute",
+      "/api/components/vertex-optimization/configure",
+      "/api/components/vertex-optimization/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "vertex_orchestration": {
+    "component_name": "vertex_orchestration",
+    "repository": "vertex-pipeline",
+    "extraction_ratio": 0.65,
+    "priority": 8,
+    "integration_target": "services/vertex-pipeline/orchestration",
+    "enhancement_contribution": 3.2,
+    "api_endpoints": [
+      "/api/components/vertex-orchestration/status",
+      "/api/components/vertex-orchestration/execute",
+      "/api/components/vertex-orchestration/configure",
+      "/api/components/vertex-orchestration/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "vertex_knowledge": {
+    "component_name": "vertex_knowledge",
+    "repository": "vertex-pipeline",
+    "extraction_ratio": 0.65,
+    "priority": 7,
+    "integration_target": "services/vertex-pipeline/knowledge",
+    "enhancement_contribution": 2.9,
+    "api_endpoints": [
+      "/api/components/vertex-knowledge/status",
+      "/api/components/vertex-knowledge/execute",
+      "/api/components/vertex-knowledge/configure",
+      "/api/components/vertex-knowledge/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "vertex_frontend": {
+    "component_name": "vertex_frontend",
+    "repository": "vertex-pipeline",
+    "extraction_ratio": 0.65,
+    "priority": 6,
+    "integration_target": "frontend/src/components/vertex",
+    "enhancement_contribution": 2.1,
+    "api_endpoints": [
+      "/api/components/vertex-frontend/status",
+      "/api/components/vertex-frontend/execute",
+      "/api/components/vertex-frontend/configure",
+      "/api/components/vertex-frontend/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "database_matrix_core": {
+    "component_name": "database_matrix_core",
+    "repository": "database-matrix",
+    "extraction_ratio": 0.78,
+    "priority": 9,
+    "integration_target": "services/database-matrix",
+    "enhancement_contribution": 4.5,
+    "api_endpoints": [
+      "/api/components/database-matrix-core/status",
+      "/api/components/database-matrix-core/execute",
+      "/api/components/database-matrix-core/configure",
+      "/api/components/database-matrix-core/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "handshake_affiliate": {
+    "component_name": "handshake_affiliate",
+    "repository": "handshake-matrix",
+    "extraction_ratio": 0.42,
+    "priority": 6,
+    "integration_target": "services/handshake-matrix/affiliate",
+    "enhancement_contribution": 2.3,
+    "api_endpoints": [
+      "/api/components/handshake-affiliate/status",
+      "/api/components/handshake-affiliate/execute",
+      "/api/components/handshake-affiliate/configure",
+      "/api/components/handshake-affiliate/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "handshake_protocols": {
+    "component_name": "handshake_protocols",
+    "repository": "handshake-matrix",
+    "extraction_ratio": 0.42,
+    "priority": 5,
+    "integration_target": "services/handshake-matrix/protocols",
+    "enhancement_contribution": 1.8,
+    "api_endpoints": [
+      "/api/components/handshake-protocols/status",
+      "/api/components/handshake-protocols/execute",
+      "/api/components/handshake-protocols/configure",
+      "/api/components/handshake-protocols/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "hypercube_core": {
+    "component_name": "hypercube_core",
+    "repository": "hypercube-db",
+    "extraction_ratio": 0.89,
+    "priority": 9,
+    "integration_target": "services/hypercube-db",
+    "enhancement_contribution": 4.8,
+    "api_endpoints": [
+      "/api/components/hypercube-core/status",
+      "/api/components/hypercube-core/execute",
+      "/api/components/hypercube-core/configure",
+      "/api/components/hypercube-core/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  },
+  "poce_infrastructure": {
+    "component_name": "poce_infrastructure",
+    "repository": "project-creator",
+    "extraction_ratio": 0.56,
+    "priority": 7,
+    "integration_target": "services/poce-creator",
+    "enhancement_contribution": 3.1,
+    "api_endpoints": [
+      "/api/components/poce-infrastructure/status",
+      "/api/components/poce-infrastructure/execute",
+      "/api/components/poce-infrastructure/configure",
+      "/api/components/poce-infrastructure/metrics"
+    ],
+    "dependencies": [],
+    "status": "integrated"
+  }
+}

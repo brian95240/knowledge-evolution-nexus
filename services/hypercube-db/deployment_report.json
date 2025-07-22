@@ -1,0 +1,39 @@
+{
+  "timestamp": "2025-05-08T22:29:33.622214",
+  "summary": {
+    "total_deployments": 4,
+    "successful_deployments": 3,
+    "failed_deployments": 1,
+    "rollbacks": 1
+  },
+  "environments": {
+    "staging": [
+      {
+        "version": "1.0.0",
+        "status": "failed",
+        "duration": 67.63874288571475
+      },
+      {
+        "version": "1.0.1",
+        "status": "success",
+        "duration": 296.3238731425603
+      }
+    ],
+    "production": [
+      {
+        "version": "1.0.0",
+        "status": "success",
+        "duration": 272.65502919353185
+      },
+      {
+        "version": "1.0.1",
+        "status": "success",
+        "duration": 331.9634314399035
+      }
+    ]
+  },
+  "metrics": {
+    "average_duration": 242.1452691654276,
+    "success_rate": 75.0
+  }
+}

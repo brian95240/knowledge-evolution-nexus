@@ -1,0 +1,38 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "properties": {
+    "budget_rules": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "campaign_id": { "type": "string" },
+          "min_budget": { "type": "number" },
+          "max_budget": { "type": "number" },
+          "adjustment_triggers": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "properties": {
+                "metric": {
+                  "type": "string",
+                  "enum": ["roi", "conversion_rate", "click_through_rate"]
+                },
+                "threshold": { "type": "number" },
+                "adjustment_type": {
+                  "type": "string",
+                  "enum": ["percentage", "fixed"]
+                },
+                "adjustment_value": { "type": "number" }
+              },
+              "required": ["metric", "threshold", "adjustment_type", "adjustment_value"]
+            }
+          }
+        },
+        "required": ["id", "campaign_id", "min_budget", "max_budget"]
+      }
+    }
+  }
+}

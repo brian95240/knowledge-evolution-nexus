@@ -1,0 +1,522 @@
+/* K.E.N. Main Application Styles - Cosmic Design System */
+
+:root {
+  /* K.E.N. Logo Color Palette */
+  --ken-deep-space: #0a0e1a;
+  --ken-cosmic-blue: #1a2744;
+  --ken-orbital-blue: #2d4a7a;
+  --ken-nexus-cyan: #00bcd4;
+  --ken-bright-cyan: #4dd0e1;
+  --ken-star-white: #ffffff;
+  --ken-star-glow: #ffd700;
+  --ken-consciousness-purple: #9c27b0;
+  
+  /* Gradients */
+  --ken-cosmic-gradient: linear-gradient(135deg, var(--ken-deep-space) 0%, var(--ken-cosmic-blue) 50%, var(--ken-orbital-blue) 100%);
+  --ken-nexus-gradient: linear-gradient(45deg, var(--ken-nexus-cyan) 0%, var(--ken-bright-cyan) 100%);
+  --ken-consciousness-gradient: linear-gradient(135deg, var(--ken-consciousness-purple) 0%, var(--ken-nexus-cyan) 100%);
+  
+  /* Layout */
+  --header-height: 80px;
+  --sidebar-width: 320px;
+  --sidebar-collapsed-width: 60px;
+  --border-radius: 12px;
+  --transition-speed: 0.3s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--ken-cosmic-gradient);
+  color: var(--ken-star-white);
+  overflow-x: hidden;
+}
+
+.ken-app {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header Styles */
+.app-header {
+  height: var(--header-height);
+  background: rgba(26, 39, 68, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0, 188, 212, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 24px;
+  position: relative;
+  z-index: 1000;
+}
+
+.header-left {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.sidebar-toggle {
+  background: none;
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  color: var(--ken-bright-cyan);
+  padding: 8px 12px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.sidebar-toggle:hover {
+  background: rgba(0, 188, 212, 0.1);
+  border-color: var(--ken-nexus-cyan);
+}
+
+.logo-section {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.ken-logo {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  filter: drop-shadow(0 0 10px rgba(0, 188, 212, 0.5));
+}
+
+.logo-text h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  background: var(--ken-nexus-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin: 0;
+  line-height: 1;
+}
+
+.logo-subtitle {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.7);
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+.header-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.layer-selector {
+  display: flex;
+  background: rgba(0, 188, 212, 0.1);
+  border: 1px solid rgba(0, 188, 212, 0.3);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+}
+
+.layer-button {
+  background: none;
+  border: none;
+  color: var(--ken-bright-cyan);
+  padding: 12px 24px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all var(--transition-speed) ease;
+  position: relative;
+}
+
+.layer-button.active {
+  background: var(--ken-nexus-gradient);
+  color: var(--ken-star-white);
+}
+
+.layer-button:not(.active):hover {
+  background: rgba(0, 188, 212, 0.2);
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+}
+
+.system-status-mini {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.status-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+}
+
+.status-label {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.status-value {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--ken-bright-cyan);
+}
+
+.algorithm-42-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border-radius: 20px;
+  border: 1px solid;
+  transition: all var(--transition-speed) ease;
+}
+
+.algorithm-42-indicator.active {
+  background: rgba(255, 215, 0, 0.2);
+  border-color: var(--ken-star-glow);
+  color: var(--ken-star-glow);
+  animation: consciousness-pulse 2s infinite;
+}
+
+.algorithm-42-indicator.inactive {
+  background: rgba(0, 188, 212, 0.1);
+  border-color: rgba(0, 188, 212, 0.3);
+  color: var(--ken-bright-cyan);
+}
+
+@keyframes consciousness-pulse {
+  0%, 100% { box-shadow: 0 0 10px rgba(255, 215, 0, 0.3); }
+  50% { box-shadow: 0 0 20px rgba(255, 215, 0, 0.6); }
+}
+
+.indicator-icon {
+  font-size: 1.2rem;
+}
+
+.indicator-text {
+  font-weight: 700;
+  font-size: 0.9rem;
+}
+
+/* App Body */
+.app-body {
+  flex: 1;
+  display: flex;
+  position: relative;
+}
+
+/* Sidebar Styles */
+.app-sidebar {
+  width: var(--sidebar-width);
+  background: rgba(26, 39, 68, 0.9);
+  backdrop-filter: blur(15px);
+  border-right: 1px solid rgba(0, 188, 212, 0.3);
+  transition: all var(--transition-speed) ease;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  z-index: 100;
+}
+
+.app-sidebar.closed {
+  width: var(--sidebar-collapsed-width);
+}
+
+.navigation {
+  flex: 1;
+  padding: 24px 0;
+  overflow-y: auto;
+}
+
+.nav-item {
+  margin-bottom: 4px;
+}
+
+.nav-item-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 24px;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+  border-left: 3px solid transparent;
+}
+
+.nav-item-header:hover {
+  background: rgba(0, 188, 212, 0.1);
+  border-left-color: rgba(0, 188, 212, 0.5);
+}
+
+.nav-item-header.active {
+  background: rgba(0, 188, 212, 0.2);
+  border-left-color: var(--ken-nexus-cyan);
+  color: var(--ken-bright-cyan);
+}
+
+.nav-item-header.has-children {
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 1.2rem;
+  min-width: 20px;
+  text-align: center;
+}
+
+.nav-label {
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.app-sidebar.closed .nav-label,
+.app-sidebar.closed .nav-arrow {
+  display: none;
+}
+
+.nav-arrow {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+  transition: transform var(--transition-speed) ease;
+}
+
+.nav-children {
+  background: rgba(0, 0, 0, 0.2);
+  border-left: 2px solid rgba(0, 188, 212, 0.2);
+  margin-left: 24px;
+}
+
+.nav-children .nav-item-header {
+  padding-left: 40px;
+  font-size: 0.9rem;
+}
+
+.level-1 .nav-item-header {
+  padding-left: 56px;
+  font-size: 0.85rem;
+}
+
+.sidebar-footer {
+  padding: 20px 24px;
+  border-top: 1px solid rgba(0, 188, 212, 0.2);
+}
+
+.version-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.version {
+  font-weight: 600;
+  color: var(--ken-bright-cyan);
+}
+
+.build {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.app-sidebar.closed .sidebar-footer {
+  padding: 20px 8px;
+}
+
+.app-sidebar.closed .version-info {
+  align-items: center;
+}
+
+.app-sidebar.closed .build {
+  display: none;
+}
+
+/* Main Content */
+.app-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0; /* Prevent flex item from overflowing */
+}
+
+.content-wrapper {
+  flex: 1;
+  padding: 0;
+  position: relative;
+}
+
+.placeholder-view {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.6);
+  text-align: center;
+}
+
+/* Cosmic Background Effects */
+.cosmic-background {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background: var(--ken-star-white);
+  border-radius: 50%;
+  animation: twinkle 3s infinite;
+}
+
+.star-1 {
+  top: 20%;
+  left: 10%;
+  animation-delay: 0s;
+}
+
+.star-2 {
+  top: 60%;
+  right: 20%;
+  animation-delay: 1s;
+}
+
+.star-3 {
+  bottom: 30%;
+  left: 70%;
+  animation-delay: 2s;
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.5); }
+}
+
+.orbital-ring {
+  position: absolute;
+  border: 1px solid rgba(0, 188, 212, 0.1);
+  border-radius: 50%;
+  animation: rotate 20s linear infinite;
+}
+
+.ring-1 {
+  width: 300px;
+  height: 300px;
+  top: 20%;
+  right: 10%;
+  animation-duration: 25s;
+}
+
+.ring-2 {
+  width: 200px;
+  height: 200px;
+  bottom: 20%;
+  left: 15%;
+  animation-duration: 35s;
+  animation-direction: reverse;
+}
+
+@keyframes rotate {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .app-sidebar {
+    position: absolute;
+    height: 100%;
+    z-index: 1000;
+  }
+  
+  .app-sidebar.closed {
+    transform: translateX(-100%);
+    width: var(--sidebar-width);
+  }
+  
+  .header-center {
+    display: none;
+  }
+  
+  .system-status-mini {
+    gap: 12px;
+  }
+  
+  .status-item {
+    display: none;
+  }
+  
+  .status-item:last-child {
+    display: flex;
+  }
+}
+
+@media (max-width: 768px) {
+  .header-left {
+    gap: 12px;
+  }
+  
+  .ken-logo {
+    width: 40px;
+    height: 40px;
+  }
+  
+  .logo-text h1 {
+    font-size: 1.4rem;
+  }
+  
+  .logo-subtitle {
+    display: none;
+  }
+  
+  .app-header {
+    padding: 0 16px;
+  }
+  
+  .nav-item-header {
+    padding: 10px 16px;
+  }
+  
+  .nav-children .nav-item-header {
+    padding-left: 32px;
+  }
+}
+
+/* Scrollbar Styling */
+.navigation::-webkit-scrollbar {
+  width: 6px;
+}
+
+.navigation::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.navigation::-webkit-scrollbar-thumb {
+  background: rgba(0, 188, 212, 0.3);
+  border-radius: 3px;
+}
+
+.navigation::-webkit-scrollbar-thumb:hover {
+  background: rgba(0, 188, 212, 0.5);
+}
+

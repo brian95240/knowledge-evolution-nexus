@@ -1,0 +1,6 @@
+{
+  "total_deployments": 4,
+  "successful": 2,
+  "failed": 2,
+  "rollbacks": 2
+}

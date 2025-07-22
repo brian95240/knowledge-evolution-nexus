@@ -1,0 +1,2309 @@
+[
+  {
+    "id": "deploy_1746743423",
+    "version": "1.0.0",
+    "environment": "staging",
+    "strategy": "blue_green",
+    "start_time": "2025-05-08T22:30:23.412313",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412329",
+            "metrics": {
+              "duration": 15.5727018549658,
+              "resource_usage": {
+                "cpu": 68.25410246125219,
+                "memory": 65.32262323363827,
+                "network": 41.64005461908803
+              },
+              "performance": {
+                "latency": 97.18822907969205,
+                "throughput": 898.8569380299048,
+                "error_rate": 0.0008610069269993678
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412359",
+            "metrics": {
+              "duration": 9.452895281570813,
+              "resource_usage": {
+                "cpu": 65.97310738513346,
+                "memory": 68.23657168973216,
+                "network": 54.64601687351044
+              },
+              "performance": {
+                "latency": 90.87028306224262,
+                "throughput": 966.6291031303086,
+                "error_rate": 0.0008654258386425141
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412372",
+            "metrics": {
+              "duration": 9.29366773591867,
+              "resource_usage": {
+                "cpu": 64.86413310061032,
+                "memory": 61.868029540840645,
+                "network": 46.67048195326673
+              },
+              "performance": {
+                "latency": 78.04007219644812,
+                "throughput": 852.6337490470676,
+                "error_rate": 0.0007258010800207716
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412383",
+            "metrics": {
+              "duration": 7.688065265999782,
+              "resource_usage": {
+                "cpu": 46.49458847905111,
+                "memory": 49.73444126667974,
+                "network": 52.16539141307104
+              },
+              "performance": {
+                "latency": 108.79947407918516,
+                "throughput": 971.6172418989719,
+                "error_rate": 0.0012235576456205164
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 82.49820243370924,
+        "environment": "staging"
+      },
+      {
+        "name": "blue_green_deployment",
+        "version": "1.0.0",
+        "status": "success",
+        "steps": {
+          "provision_new_environment": {
+            "name": "provision",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412398",
+            "metrics": {
+              "duration": 11.248608025307842,
+              "resource_usage": {
+                "cpu": 49.351756605979716,
+                "memory": 73.69522045874992,
+                "network": 66.0751065625873
+              },
+              "performance": {
+                "latency": 98.25207445935719,
+                "throughput": 895.395412766817,
+                "error_rate": 0.0010357720322354868
+              }
+            }
+          },
+          "deploy_new_version": {
+            "name": "deploy",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412409",
+            "metrics": {
+              "duration": 11.531999634863073,
+              "resource_usage": {
+                "cpu": 57.513912867084294,
+                "memory": 58.34113358268188,
+                "network": 48.56827346979073
+              },
+              "performance": {
+                "latency": 63.25520889351394,
+                "throughput": 830.836510627114,
+                "error_rate": 0.001316006807864007
+              }
+            }
+          },
+          "run_smoke_tests": {
+            "name": "smoke_test",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412419",
+            "metrics": {
+              "duration": 8.421340846478213,
+              "resource_usage": {
+                "cpu": 52.96534053199879,
+                "memory": 78.1185603970378,
+                "network": 50.21233426525339
+              },
+              "performance": {
+                "latency": 52.56316966378105,
+                "throughput": 908.9841803188514,
+                "error_rate": 0.000903370800464789
+              }
+            }
+          },
+          "switch_traffic": {
+            "name": "traffic_switch",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412430",
+            "metrics": {
+              "duration": 9.78794245262126,
+              "resource_usage": {
+                "cpu": 61.700533084645876,
+                "memory": 65.36524802977992,
+                "network": 35.39170553306391
+              },
+              "performance": {
+                "latency": 64.19626173583964,
+                "throughput": 1098.2356312353681,
+                "error_rate": 0.0007846609055374193
+              }
+            }
+          },
+          "verify_new_environment": {
+            "name": "verify",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412441",
+            "metrics": {
+              "duration": 11.32425519603337,
+              "resource_usage": {
+                "cpu": 62.56315258628721,
+                "memory": 80.25097615890411,
+                "network": 61.60475013291676
+              },
+              "performance": {
+                "latency": 122.3130901802017,
+                "throughput": 1077.8624761112478,
+                "error_rate": 0.0009025778505522597
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 174.8654123008945,
+        "environment": "staging"
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "name": "health_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412457",
+            "metrics": {
+              "duration": 10.965619763222692,
+              "resource_usage": {
+                "cpu": 80.679153795671,
+                "memory": 68.46606714240644,
+                "network": 59.91770348391609
+              },
+              "performance": {
+                "latency": 84.49893493317319,
+                "throughput": 1075.6945956095763,
+                "error_rate": 0.001365616146107437
+              }
+            }
+          },
+          "performance_check": {
+            "name": "performance_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412467",
+            "metrics": {
+              "duration": 8.727298375770035,
+              "resource_usage": {
+                "cpu": 83.22126597416514,
+                "memory": 69.51716623879612,
+                "network": 38.24931899093732
+              },
+              "performance": {
+                "latency": 98.96349547882707,
+                "throughput": 1119.4920569754916,
+                "error_rate": 0.0011112622268477268
+              }
+            }
+          },
+          "integration_check": {
+            "name": "integration_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412478",
+            "metrics": {
+              "duration": 5.434517656534868,
+              "resource_usage": {
+                "cpu": 40.70245815164239,
+                "memory": 68.17154086430085,
+                "network": 51.99001865785747
+              },
+              "performance": {
+                "latency": 95.39811607673334,
+                "throughput": 932.0437902024474,
+                "error_rate": 0.0014320855023906114
+              }
+            }
+          },
+          "security_check": {
+            "name": "security_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412489",
+            "metrics": {
+              "duration": 8.517672374955081,
+              "resource_usage": {
+                "cpu": 77.95461132782674,
+                "memory": 70.75579030558274,
+                "network": 49.3768275397251
+              },
+              "performance": {
+                "latency": 85.23811126427832,
+                "throughput": 1066.3458503431477,
+                "error_rate": 0.0006609959642100748
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 128.19044935158342,
+        "environment": "staging"
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "avg_response_time": 91.14310365480594,
+        "error_rate": 0.0013503528318846245,
+        "throughput": 6499.478273343397
+      },
+      "resources": {
+        "cpu_usage": 56.63850913962105,
+        "memory_usage": 71.464112663143,
+        "network_usage": 52.61818545062185
+      },
+      "stability": {
+        "crash_count": 0,
+        "recovery_time": 0,
+        "availability": 100.0
+      }
+    },
+    "status": "success",
+    "end_time": "2025-05-08T22:30:23.412509"
+  },
+  {
+    "id": "deploy_1746743423",
+    "version": "1.0.0",
+    "environment": "staging",
+    "strategy": "canary",
+    "start_time": "2025-05-08T22:30:23.412514",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412517",
+            "metrics": {
+              "duration": 10.802004320209626,
+              "resource_usage": {
+                "cpu": 61.25287650359431,
+                "memory": 64.02033404650228,
+                "network": 41.37664491493885
+              },
+              "performance": {
+                "latency": 80.19268718782445,
+                "throughput": 906.2013377691314,
+                "error_rate": 0.0010881035205130788
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412528",
+            "metrics": {
+              "duration": 8.674245219465753,
+              "resource_usage": {
+                "cpu": 62.493073036978345,
+                "memory": 45.2605805113882,
+                "network": 51.47603961744331
+              },
+              "performance": {
+                "latency": 64.58684603931923,
+                "throughput": 1075.830033493653,
+                "error_rate": 0.001096988060317192
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412539",
+            "metrics": {
+              "duration": 9.17643559443891,
+              "resource_usage": {
+                "cpu": 74.79888395688353,
+                "memory": 75.62457509286524,
+                "network": 45.63516671657794
+              },
+              "performance": {
+                "latency": 81.30131244362308,
+                "throughput": 1018.2216578602919,
+                "error_rate": 0.0007313628732311822
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412549",
+            "metrics": {
+              "duration": 9.627151449944325,
+              "resource_usage": {
+                "cpu": 62.445619716482916,
+                "memory": 81.14695758238543,
+                "network": 47.69251456262611
+              },
+              "performance": {
+                "latency": 77.33999670633335,
+                "throughput": 1158.6992475793977,
+                "error_rate": 0.0003566702896776237
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 87.15643726535973,
+        "environment": "staging"
+      },
+      {
+        "name": "canary_deployment",
+        "version": "1.0.0",
+        "status": "failed",
+        "steps": {
+          "deploy_10%": {
+            "name": "canary_10%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412563",
+            "metrics": {
+              "duration": 9.682249128120908,
+              "resource_usage": {
+                "cpu": 48.897609399610914,
+                "memory": 65.5965981522523,
+                "network": 39.34772342944575
+              },
+              "performance": {
+                "latency": 78.46294222893802,
+                "throughput": 1306.846288245108,
+                "error_rate": 0.0013192598489371937
+              }
+            }
+          },
+          "deploy_30%": {
+            "name": "canary_30%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412575",
+            "metrics": {
+              "duration": 11.672556821048953,
+              "resource_usage": {
+                "cpu": 58.50784372813044,
+                "memory": 76.6208178992691,
+                "network": 38.870258573325124
+              },
+              "performance": {
+                "latency": 100.00798377634263,
+                "throughput": 951.324376909464,
+                "error_rate": 0.0010245505094180567
+              }
+            }
+          },
+          "deploy_50%": {
+            "name": "canary_50%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412587",
+            "metrics": {
+              "duration": 10.57521922958305,
+              "resource_usage": {
+                "cpu": 47.7326105815947,
+                "memory": 66.8064726801915,
+                "network": 51.61188072709875
+              },
+              "performance": {
+                "latency": 86.09219892138037,
+                "throughput": 882.908061465908,
+                "error_rate": 0.0014201522669299179
+              }
+            }
+          },
+          "deploy_70%": {
+            "name": "canary_70%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412598",
+            "metrics": {
+              "duration": 11.108883447910104,
+              "resource_usage": {
+                "cpu": 47.26223387780307,
+                "memory": 66.26035166324881,
+                "network": 28.030574861437163
+              },
+              "performance": {
+                "latency": 77.59807590626468,
+                "throughput": 1108.8648568219082,
+                "error_rate": 0.0011142591075208332
+              }
+            }
+          },
+          "deploy_90%": {
+            "name": "canary_90%",
+            "status": "failed",
+            "timestamp": "2025-05-08T22:30:23.412609",
+            "metrics": {
+              "duration": 6.554120448342274,
+              "resource_usage": {
+                "cpu": 58.144876786906664,
+                "memory": 76.00957411610042,
+                "network": 42.90402825719669
+              },
+              "performance": {
+                "latency": 90.8845083203856,
+                "throughput": 921.7615954616678,
+                "error_rate": 0.001065388023872185
+              }
+            }
+          }
+        },
+        "failures": [
+          "canary_90%"
+        ],
+        "duration": 149.9693695167424,
+        "environment": "staging"
+      }
+    ],
+    "metrics": {},
+    "status": "failed",
+    "error": "Deployment failed: ['canary_90%']",
+    "end_time": "2025-05-08T22:30:23.412626",
+    "rollback": {
+      "deployment_id": "deploy_1746743423",
+      "status": "success",
+      "steps": {
+        "stop_new_version": {
+          "name": "stop",
+          "status": "success",
+          "timestamp": "2025-05-08T22:30:23.412630",
+          "metrics": {
+            "duration": 5.3381192598522595,
+            "resource_usage": {
+              "cpu": 64.73377434044342,
+              "memory": 63.25877486916316,
+              "network": 46.60834755007066
+            },
+            "performance": {
+              "latency": 85.79433920013092,
+              "throughput": 771.2586365716452,
+              "error_rate": 0.0011257112533112163
+            }
+          }
+        },
+        "restore_backup": {
+          "name": "restore",
+          "status": "success",
+          "timestamp": "2025-05-08T22:30:23.412641",
+          "metrics": {
+            "duration": 10.23178013959267,
+            "resource_usage": {
+              "cpu": 77.31996645264799,
+              "memory": 59.86423919511587,
+              "network": 54.03672572796712
+            },
+            "performance": {
+              "latency": 58.11157677891194,
+              "throughput": 886.4476813112836,
+              "error_rate": 0.0012001134795921198
+            }
+          }
+        },
+        "verify_rollback": {
+          "name": "verify",
+          "status": "success",
+          "timestamp": "2025-05-08T22:30:23.412651",
+          "metrics": {
+            "duration": 8.030427606737724,
+            "resource_usage": {
+              "cpu": 69.16907215433186,
+              "memory": 56.46510563014525,
+              "network": 50.420203777683575
+            },
+            "performance": {
+              "latency": 74.25704793723598,
+              "throughput": 1026.2185368573241,
+              "error_rate": 0.0008963966942935254
+            }
+          }
+        },
+        "revert_traffic": {
+          "name": "revert",
+          "status": "success",
+          "timestamp": "2025-05-08T22:30:23.412661",
+          "metrics": {
+            "duration": 7.722252746347839,
+            "resource_usage": {
+              "cpu": 38.36545122927141,
+              "memory": 71.9026757026525,
+              "network": 28.169454927459107
+            },
+            "performance": {
+              "latency": 85.05650711581114,
+              "throughput": 981.596870725503,
+              "error_rate": 0.0011609915678891857
+            }
+          }
+        }
+      },
+      "failures": [],
+      "duration": 99.87280765561256,
+      "environment": "staging"
+    }
+  },
+  {
+    "id": "deploy_1746743423",
+    "version": "1.1.0",
+    "environment": "staging",
+    "strategy": "blue_green",
+    "start_time": "2025-05-08T22:30:23.412677",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412681",
+            "metrics": {
+              "duration": 9.906840391376264,
+              "resource_usage": {
+                "cpu": 51.477919484814976,
+                "memory": 78.23747083471584,
+                "network": 35.45010347516415
+              },
+              "performance": {
+                "latency": 87.0544815063732,
+                "throughput": 1106.5628446997625,
+                "error_rate": 0.0011189312833901305
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412692",
+            "metrics": {
+              "duration": 9.512796956026142,
+              "resource_usage": {
+                "cpu": 75.93364363086559,
+                "memory": 54.93008559366188,
+                "network": 43.85010167212646
+              },
+              "performance": {
+                "latency": 81.23967663759171,
+                "throughput": 1018.1901585651505,
+                "error_rate": 0.0009597880673001312
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412702",
+            "metrics": {
+              "duration": 6.766470141298495,
+              "resource_usage": {
+                "cpu": 55.39253805962814,
+                "memory": 61.94311126953798,
+                "network": 36.637469159948424
+              },
+              "performance": {
+                "latency": 85.6706480022151,
+                "throughput": 1080.8259583343072,
+                "error_rate": 0.0009940278724103913
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412713",
+            "metrics": {
+              "duration": 11.615300776289772,
+              "resource_usage": {
+                "cpu": 67.15637175056474,
+                "memory": 67.17935024352279,
+                "network": 68.60416005546814
+              },
+              "performance": {
+                "latency": 89.34423806644043,
+                "throughput": 1060.5921521431187,
+                "error_rate": 0.0009980279401134169
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 96.9798055072353,
+        "environment": "staging"
+      },
+      {
+        "name": "blue_green_deployment",
+        "version": "1.1.0",
+        "status": "success",
+        "steps": {
+          "provision_new_environment": {
+            "name": "provision",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412725",
+            "metrics": {
+              "duration": 9.964659760226542,
+              "resource_usage": {
+                "cpu": 62.79390783135383,
+                "memory": 65.88048070104921,
+                "network": 54.8103520086277
+              },
+              "performance": {
+                "latency": 93.1822181243866,
+                "throughput": 1046.1791797664946,
+                "error_rate": 0.0010997773773274578
+              }
+            }
+          },
+          "deploy_new_version": {
+            "name": "deploy",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412735",
+            "metrics": {
+              "duration": 11.46540436551349,
+              "resource_usage": {
+                "cpu": 61.824779793842524,
+                "memory": 76.94378948579926,
+                "network": 44.516457528742045
+              },
+              "performance": {
+                "latency": 90.7234820370217,
+                "throughput": 1063.0310481004485,
+                "error_rate": 0.0011410111189902922
+              }
+            }
+          },
+          "run_smoke_tests": {
+            "name": "smoke_test",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412746",
+            "metrics": {
+              "duration": 10.387913098244459,
+              "resource_usage": {
+                "cpu": 56.387301534064186,
+                "memory": 82.41934015903917,
+                "network": 51.54907723980998
+              },
+              "performance": {
+                "latency": 81.00562070068828,
+                "throughput": 938.7440236718006,
+                "error_rate": 0.001160111387988957
+              }
+            }
+          },
+          "switch_traffic": {
+            "name": "traffic_switch",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412756",
+            "metrics": {
+              "duration": 7.817794617432307,
+              "resource_usage": {
+                "cpu": 69.74498754264799,
+                "memory": 63.51117356677313,
+                "network": 43.2491120774679
+              },
+              "performance": {
+                "latency": 76.8323853494924,
+                "throughput": 951.5268432110815,
+                "error_rate": 0.0012329828541044544
+              }
+            }
+          },
+          "verify_new_environment": {
+            "name": "verify",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412766",
+            "metrics": {
+              "duration": 11.131456294149546,
+              "resource_usage": {
+                "cpu": 50.53888980441309,
+                "memory": 81.56552341119996,
+                "network": 34.118877692559806
+              },
+              "performance": {
+                "latency": 74.12462380536394,
+                "throughput": 1028.0312301935382,
+                "error_rate": 0.0010142063479737877
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 137.03959191350816,
+        "environment": "staging"
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "name": "health_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412779",
+            "metrics": {
+              "duration": 5.224714716376826,
+              "resource_usage": {
+                "cpu": 69.55739853392402,
+                "memory": 91.43055154118052,
+                "network": 50.09281467679949
+              },
+              "performance": {
+                "latency": 93.98810320591595,
+                "throughput": 934.4978092167697,
+                "error_rate": 0.00118880288712604
+              }
+            }
+          },
+          "performance_check": {
+            "name": "performance_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412790",
+            "metrics": {
+              "duration": 9.163311755288607,
+              "resource_usage": {
+                "cpu": 47.894230027825486,
+                "memory": 63.82991460199166,
+                "network": 64.72897179642528
+              },
+              "performance": {
+                "latency": 98.34666276563969,
+                "throughput": 1042.3004632224354,
+                "error_rate": 0.0007626812711723531
+              }
+            }
+          },
+          "integration_check": {
+            "name": "integration_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412800",
+            "metrics": {
+              "duration": 9.17700853490211,
+              "resource_usage": {
+                "cpu": 49.40627864969605,
+                "memory": 74.9497562345627,
+                "network": 31.066214734041047
+              },
+              "performance": {
+                "latency": 99.36399514580988,
+                "throughput": 1046.608002683433,
+                "error_rate": 0.0009409173872910753
+              }
+            }
+          },
+          "security_check": {
+            "name": "security_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412810",
+            "metrics": {
+              "duration": 9.31531854353906,
+              "resource_usage": {
+                "cpu": 57.98555978401081,
+                "memory": 68.97240488921827,
+                "network": 45.15420486355727
+              },
+              "performance": {
+                "latency": 96.85557024269576,
+                "throughput": 866.2530662770582,
+                "error_rate": 0.001119759523953111
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 103.12273421820149,
+        "environment": "staging"
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "avg_response_time": 93.45173669225576,
+        "error_rate": 0.0010620601712882406,
+        "throughput": 4290.30085157309
+      },
+      "resources": {
+        "cpu_usage": 64.49189246127193,
+        "memory_usage": 96.51032832906054,
+        "network_usage": 47.380016506029484
+      },
+      "stability": {
+        "crash_count": 0,
+        "recovery_time": 0,
+        "availability": 100.0
+      }
+    },
+    "status": "success",
+    "end_time": "2025-05-08T22:30:23.412830"
+  },
+  {
+    "id": "deploy_1746743423",
+    "version": "1.1.0",
+    "environment": "staging",
+    "strategy": "canary",
+    "start_time": "2025-05-08T22:30:23.412833",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412837",
+            "metrics": {
+              "duration": 11.774829108975592,
+              "resource_usage": {
+                "cpu": 52.500635407957695,
+                "memory": 54.68921881154172,
+                "network": 49.42005314185522
+              },
+              "performance": {
+                "latency": 61.40087582626626,
+                "throughput": 1074.6943457028883,
+                "error_rate": 0.0010676195770108919
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412847",
+            "metrics": {
+              "duration": 9.414463961371206,
+              "resource_usage": {
+                "cpu": 40.715804144587125,
+                "memory": 69.24646923219177,
+                "network": 52.420198690126504
+              },
+              "performance": {
+                "latency": 82.67762656539843,
+                "throughput": 918.1478838380028,
+                "error_rate": 0.001033879196058887
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412857",
+            "metrics": {
+              "duration": 10.19302798748156,
+              "resource_usage": {
+                "cpu": 66.26224146709082,
+                "memory": 70.29060629126148,
+                "network": 56.932133693711606
+              },
+              "performance": {
+                "latency": 84.39907202570606,
+                "throughput": 899.6838552255887,
+                "error_rate": 0.0010491464220714576
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412867",
+            "metrics": {
+              "duration": 12.484052564298292,
+              "resource_usage": {
+                "cpu": 62.375300850364,
+                "memory": 64.02592060766564,
+                "network": 56.25755594611152
+              },
+              "performance": {
+                "latency": 90.33419818996003,
+                "throughput": 946.1076255836119,
+                "error_rate": 0.0012184194646707354
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 92.18401474270286,
+        "environment": "staging"
+      },
+      {
+        "name": "canary_deployment",
+        "version": "1.1.0",
+        "status": "success",
+        "steps": {
+          "deploy_10%": {
+            "name": "canary_10%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412880",
+            "metrics": {
+              "duration": 10.821973540682102,
+              "resource_usage": {
+                "cpu": 60.77804037252371,
+                "memory": 62.71626802043532,
+                "network": 30.928295766490166
+              },
+              "performance": {
+                "latency": 74.23288371042797,
+                "throughput": 896.2490108337495,
+                "error_rate": 0.0007452746664156308
+              }
+            }
+          },
+          "deploy_30%": {
+            "name": "canary_30%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412891",
+            "metrics": {
+              "duration": 11.262810196155804,
+              "resource_usage": {
+                "cpu": 49.82416755740621,
+                "memory": 55.90805333267181,
+                "network": 34.90852949786991
+              },
+              "performance": {
+                "latency": 66.08679186304622,
+                "throughput": 1035.9994889560976,
+                "error_rate": 0.0009934263703064012
+              }
+            }
+          },
+          "deploy_50%": {
+            "name": "canary_50%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412901",
+            "metrics": {
+              "duration": 10.58511936368681,
+              "resource_usage": {
+                "cpu": 87.74447143456285,
+                "memory": 64.52821561594173,
+                "network": 34.82454935629075
+              },
+              "performance": {
+                "latency": 78.8841466435516,
+                "throughput": 823.4736008548141,
+                "error_rate": 0.0007513642350047182
+              }
+            }
+          },
+          "deploy_70%": {
+            "name": "canary_70%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412912",
+            "metrics": {
+              "duration": 9.140199910181757,
+              "resource_usage": {
+                "cpu": 62.25556449870828,
+                "memory": 80.08880762153554,
+                "network": 41.27247379194033
+              },
+              "performance": {
+                "latency": 92.16864851363928,
+                "throughput": 1054.432807984951,
+                "error_rate": 0.000423613478950264
+              }
+            }
+          },
+          "deploy_90%": {
+            "name": "canary_90%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412923",
+            "metrics": {
+              "duration": 9.834354140201786,
+              "resource_usage": {
+                "cpu": 73.16479906042117,
+                "memory": 79.21780691815596,
+                "network": 52.509857383994635
+              },
+              "performance": {
+                "latency": 98.27547179479556,
+                "throughput": 960.725065047136,
+                "error_rate": 0.0007120615611773107
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 169.55540224232067,
+        "environment": "staging"
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "name": "health_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412935",
+            "metrics": {
+              "duration": 11.493466420508927,
+              "resource_usage": {
+                "cpu": 58.92283448113064,
+                "memory": 66.27180509788212,
+                "network": 63.20892194963284
+              },
+              "performance": {
+                "latency": 74.65945525116369,
+                "throughput": 1029.6149158245462,
+                "error_rate": 0.0008104105102598463
+              }
+            }
+          },
+          "performance_check": {
+            "name": "performance_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412946",
+            "metrics": {
+              "duration": 11.569722409355876,
+              "resource_usage": {
+                "cpu": 57.37373514699672,
+                "memory": 60.292527676429586,
+                "network": 50.35897782438899
+              },
+              "performance": {
+                "latency": 71.78990580579321,
+                "throughput": 1056.109073710658,
+                "error_rate": 0.00081913422105331
+              }
+            }
+          },
+          "integration_check": {
+            "name": "integration_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412956",
+            "metrics": {
+              "duration": 7.169234914145258,
+              "resource_usage": {
+                "cpu": 41.79141745628377,
+                "memory": 74.0553086245965,
+                "network": 50.84645058594818
+              },
+              "performance": {
+                "latency": 104.60122020621861,
+                "throughput": 971.3070063187727,
+                "error_rate": 0.0009123727127909937
+              }
+            }
+          },
+          "security_check": {
+            "name": "security_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412966",
+            "metrics": {
+              "duration": 7.716816505580601,
+              "resource_usage": {
+                "cpu": 69.841071734787,
+                "memory": 94.30407294235046,
+                "network": 57.31172759874876
+              },
+              "performance": {
+                "latency": 60.71227754145162,
+                "throughput": 983.185753939915,
+                "error_rate": 0.0006428796240798504
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 72.70229646006193,
+        "environment": "staging"
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "avg_response_time": 99.85437310422083,
+        "error_rate": 0.0010463353729908518,
+        "throughput": 4267.051670884122
+      },
+      "resources": {
+        "cpu_usage": 72.57619706484644,
+        "memory_usage": 74.88467407961853,
+        "network_usage": 45.22182659982384
+      },
+      "stability": {
+        "crash_count": 0,
+        "recovery_time": 0,
+        "availability": 100.0
+      }
+    },
+    "status": "success",
+    "end_time": "2025-05-08T22:30:23.412984"
+  },
+  {
+    "id": "deploy_1746743423",
+    "version": "1.0.0",
+    "environment": "production",
+    "strategy": "blue_green",
+    "start_time": "2025-05-08T22:30:23.412988",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.412991",
+            "metrics": {
+              "duration": 8.96378208548398,
+              "resource_usage": {
+                "cpu": 68.43171382446812,
+                "memory": 81.6134629781564,
+                "network": 46.13848089090134
+              },
+              "performance": {
+                "latency": 93.34326162008685,
+                "throughput": 892.8037436529497,
+                "error_rate": 0.0011043126223317453
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413001",
+            "metrics": {
+              "duration": 10.756286550659782,
+              "resource_usage": {
+                "cpu": 60.45985276027179,
+                "memory": 64.25406093722582,
+                "network": 45.492036884784525
+              },
+              "performance": {
+                "latency": 80.0513912789669,
+                "throughput": 996.9096990625071,
+                "error_rate": 0.0007857088977611046
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413011",
+            "metrics": {
+              "duration": 10.2826286406702,
+              "resource_usage": {
+                "cpu": 59.056663857334364,
+                "memory": 80.11034676661374,
+                "network": 49.591481720871194
+              },
+              "performance": {
+                "latency": 72.0158231173722,
+                "throughput": 1043.267255221051,
+                "error_rate": 0.0008703651535018527
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413021",
+            "metrics": {
+              "duration": 5.388005836311922,
+              "resource_usage": {
+                "cpu": 59.74293342486809,
+                "memory": 81.71933986129712,
+                "network": 52.4034848280011
+              },
+              "performance": {
+                "latency": 69.84902025464208,
+                "throughput": 944.7538561100264,
+                "error_rate": 0.0009939718805396151
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 108.7920726134108,
+        "environment": "production"
+      },
+      {
+        "name": "blue_green_deployment",
+        "version": "1.0.0",
+        "status": "success",
+        "steps": {
+          "provision_new_environment": {
+            "name": "provision",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413033",
+            "metrics": {
+              "duration": 9.675065756614604,
+              "resource_usage": {
+                "cpu": 45.67216127933676,
+                "memory": 75.39226087613707,
+                "network": 41.49011708634738
+              },
+              "performance": {
+                "latency": 74.86972455661528,
+                "throughput": 1065.750340305585,
+                "error_rate": 0.0010005045913587121
+              }
+            }
+          },
+          "deploy_new_version": {
+            "name": "deploy",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413043",
+            "metrics": {
+              "duration": 12.273823996623355,
+              "resource_usage": {
+                "cpu": 74.43832558789806,
+                "memory": 57.794235243966696,
+                "network": 26.156798821860107
+              },
+              "performance": {
+                "latency": 89.91813406632149,
+                "throughput": 1091.603195990762,
+                "error_rate": 0.0009490574438449353
+              }
+            }
+          },
+          "run_smoke_tests": {
+            "name": "smoke_test",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413054",
+            "metrics": {
+              "duration": 11.824095991962546,
+              "resource_usage": {
+                "cpu": 58.370006361656316,
+                "memory": 76.79606818880346,
+                "network": 43.098424430056276
+              },
+              "performance": {
+                "latency": 84.45063032253519,
+                "throughput": 954.3225036248499,
+                "error_rate": 0.0010729503550567841
+              }
+            }
+          },
+          "switch_traffic": {
+            "name": "traffic_switch",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413064",
+            "metrics": {
+              "duration": 10.457771189406067,
+              "resource_usage": {
+                "cpu": 61.47497868335673,
+                "memory": 65.64479344277038,
+                "network": 55.499464522364
+              },
+              "performance": {
+                "latency": 108.64442759588343,
+                "throughput": 1047.7975846305233,
+                "error_rate": 0.0011599551775296636
+              }
+            }
+          },
+          "verify_new_environment": {
+            "name": "verify",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413074",
+            "metrics": {
+              "duration": 8.137191788919681,
+              "resource_usage": {
+                "cpu": 47.96263031953238,
+                "memory": 51.999771685428954,
+                "network": 48.493147656343204
+              },
+              "performance": {
+                "latency": 67.31946934930424,
+                "throughput": 897.2526591883305,
+                "error_rate": 0.000830178624980836
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 168.7167037630054,
+        "environment": "production"
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "name": "health_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413087",
+            "metrics": {
+              "duration": 8.265101846456131,
+              "resource_usage": {
+                "cpu": 57.01029238995812,
+                "memory": 73.49236628663985,
+                "network": 33.73468567146337
+              },
+              "performance": {
+                "latency": 82.95328917437747,
+                "throughput": 1076.6394866813325,
+                "error_rate": 0.0009119312257453826
+              }
+            }
+          },
+          "performance_check": {
+            "name": "performance_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413097",
+            "metrics": {
+              "duration": 11.357286007562188,
+              "resource_usage": {
+                "cpu": 50.809333312253216,
+                "memory": 62.87638164192498,
+                "network": 53.33995770600207
+              },
+              "performance": {
+                "latency": 98.12661747999087,
+                "throughput": 981.3737812634921,
+                "error_rate": 0.000887395452215767
+              }
+            }
+          },
+          "integration_check": {
+            "name": "integration_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413107",
+            "metrics": {
+              "duration": 10.689965525342368,
+              "resource_usage": {
+                "cpu": 54.58656630466895,
+                "memory": 81.46841024998547,
+                "network": 46.454483895681115
+              },
+              "performance": {
+                "latency": 71.58216603780654,
+                "throughput": 1092.925402309537,
+                "error_rate": 0.0014264968947104101
+              }
+            }
+          },
+          "security_check": {
+            "name": "security_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413117",
+            "metrics": {
+              "duration": 11.189762170545805,
+              "resource_usage": {
+                "cpu": 67.03199560808572,
+                "memory": 74.87792832217625,
+                "network": 33.19266067649501
+              },
+              "performance": {
+                "latency": 88.6983796133708,
+                "throughput": 859.7388188849097,
+                "error_rate": 0.0006354128763437382
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 124.23301300848416,
+        "environment": "production"
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "avg_response_time": 85.7727415219337,
+        "error_rate": 0.0008426823494674805,
+        "throughput": 5076.14624631304
+      },
+      "resources": {
+        "cpu_usage": 43.40470780691518,
+        "memory_usage": 64.63625734377112,
+        "network_usage": 65.67756276259381
+      },
+      "stability": {
+        "crash_count": 0,
+        "recovery_time": 0,
+        "availability": 100.0
+      }
+    },
+    "status": "success",
+    "end_time": "2025-05-08T22:30:23.413135"
+  },
+  {
+    "id": "deploy_1746743423",
+    "version": "1.0.0",
+    "environment": "production",
+    "strategy": "canary",
+    "start_time": "2025-05-08T22:30:23.413139",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413142",
+            "metrics": {
+              "duration": 8.509871390540669,
+              "resource_usage": {
+                "cpu": 48.509202629282264,
+                "memory": 81.61169321057343,
+                "network": 49.5382093416774
+              },
+              "performance": {
+                "latency": 79.89257309922505,
+                "throughput": 1011.302593822366,
+                "error_rate": 0.0008074639713692013
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413152",
+            "metrics": {
+              "duration": 11.253917313653435,
+              "resource_usage": {
+                "cpu": 42.29344061190418,
+                "memory": 62.439945817033134,
+                "network": 66.21988266654647
+              },
+              "performance": {
+                "latency": 62.08062751567872,
+                "throughput": 1006.3927064377051,
+                "error_rate": 0.0011797337980355414
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413162",
+            "metrics": {
+              "duration": 9.130976201608137,
+              "resource_usage": {
+                "cpu": 56.57190419454819,
+                "memory": 81.9109688420238,
+                "network": 53.90824131397636
+              },
+              "performance": {
+                "latency": 34.87393710060894,
+                "throughput": 934.9284932334181,
+                "error_rate": 0.0011153674657322287
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413172",
+            "metrics": {
+              "duration": 11.76147416904281,
+              "resource_usage": {
+                "cpu": 61.10376246822867,
+                "memory": 69.71367956867199,
+                "network": 62.98445608372017
+              },
+              "performance": {
+                "latency": 63.80052061197438,
+                "throughput": 1007.4643161966023,
+                "error_rate": 0.0010965190989873036
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 92.11567398326036,
+        "environment": "production"
+      },
+      {
+        "name": "canary_deployment",
+        "version": "1.0.0",
+        "status": "success",
+        "steps": {
+          "deploy_10%": {
+            "name": "canary_10%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413184",
+            "metrics": {
+              "duration": 11.867575075037145,
+              "resource_usage": {
+                "cpu": 33.374972979560425,
+                "memory": 84.08047892808437,
+                "network": 45.8749578475034
+              },
+              "performance": {
+                "latency": 94.61202753752191,
+                "throughput": 987.7924890445692,
+                "error_rate": 0.0006394336745019063
+              }
+            }
+          },
+          "deploy_30%": {
+            "name": "canary_30%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413195",
+            "metrics": {
+              "duration": 13.210395442356814,
+              "resource_usage": {
+                "cpu": 52.76867926139282,
+                "memory": 73.58953166220395,
+                "network": 55.36512314687479
+              },
+              "performance": {
+                "latency": 82.06574988057329,
+                "throughput": 1077.4091059561204,
+                "error_rate": 0.0010148209486894497
+              }
+            }
+          },
+          "deploy_50%": {
+            "name": "canary_50%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413205",
+            "metrics": {
+              "duration": 11.890765987086084,
+              "resource_usage": {
+                "cpu": 56.263131825389536,
+                "memory": 66.36902031514967,
+                "network": 47.591969210482176
+              },
+              "performance": {
+                "latency": 78.36611572046907,
+                "throughput": 865.1255617978811,
+                "error_rate": 0.0008836164494506286
+              }
+            }
+          },
+          "deploy_70%": {
+            "name": "canary_70%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413216",
+            "metrics": {
+              "duration": 12.732062221523453,
+              "resource_usage": {
+                "cpu": 68.8452303371107,
+                "memory": 66.23327711014852,
+                "network": 41.84171385438817
+              },
+              "performance": {
+                "latency": 72.01454013685836,
+                "throughput": 1034.457754963478,
+                "error_rate": 0.0008479483626178246
+              }
+            }
+          },
+          "deploy_90%": {
+            "name": "canary_90%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413227",
+            "metrics": {
+              "duration": 11.034560704499658,
+              "resource_usage": {
+                "cpu": 62.368189203694484,
+                "memory": 85.33548459193814,
+                "network": 49.024120224875006
+              },
+              "performance": {
+                "latency": 66.77520040232923,
+                "throughput": 1031.0602955345487,
+                "error_rate": 0.0009104000298934647
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 263.70334093286726,
+        "environment": "production"
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "name": "health_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413239",
+            "metrics": {
+              "duration": 5.596072879290428,
+              "resource_usage": {
+                "cpu": 75.53356912904574,
+                "memory": 60.40912298329489,
+                "network": 39.64964560534427
+              },
+              "performance": {
+                "latency": 61.35975558984245,
+                "throughput": 986.8616398417876,
+                "error_rate": 0.0011407771929210792
+              }
+            }
+          },
+          "performance_check": {
+            "name": "performance_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413249",
+            "metrics": {
+              "duration": 6.79985929122531,
+              "resource_usage": {
+                "cpu": 54.53971590266703,
+                "memory": 71.28907593026345,
+                "network": 34.58939339578188
+              },
+              "performance": {
+                "latency": 85.511279820559,
+                "throughput": 1068.4578510456731,
+                "error_rate": 0.0008994089397718678
+              }
+            }
+          },
+          "integration_check": {
+            "name": "integration_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413260",
+            "metrics": {
+              "duration": 10.659454926829893,
+              "resource_usage": {
+                "cpu": 73.90315656618506,
+                "memory": 83.40264804203684,
+                "network": 31.130923312627598
+              },
+              "performance": {
+                "latency": 95.97854921063028,
+                "throughput": 1073.915699902722,
+                "error_rate": 0.0007557691387601367
+              }
+            }
+          },
+          "security_check": {
+            "name": "security_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413270",
+            "metrics": {
+              "duration": 12.767250268420444,
+              "resource_usage": {
+                "cpu": 70.32120707888443,
+                "memory": 69.73170848811351,
+                "network": 62.780775059199705
+              },
+              "performance": {
+                "latency": 87.35113866020029,
+                "throughput": 892.8143016126967,
+                "error_rate": 0.0009819058843528931
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 113.79508670906965,
+        "environment": "production"
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "avg_response_time": 89.70425821251638,
+        "error_rate": 0.0009468854483990778,
+        "throughput": 5075.867308863892
+      },
+      "resources": {
+        "cpu_usage": 79.71598183654447,
+        "memory_usage": 74.70795998564617,
+        "network_usage": 62.414494511121134
+      },
+      "stability": {
+        "crash_count": 0,
+        "recovery_time": 0,
+        "availability": 100.0
+      }
+    },
+    "status": "success",
+    "end_time": "2025-05-08T22:30:23.413289"
+  },
+  {
+    "id": "deploy_1746743423",
+    "version": "1.1.0",
+    "environment": "production",
+    "strategy": "blue_green",
+    "start_time": "2025-05-08T22:30:23.413292",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413295",
+            "metrics": {
+              "duration": 13.335943966135183,
+              "resource_usage": {
+                "cpu": 52.03979482271469,
+                "memory": 72.46065371035115,
+                "network": 51.716292149815
+              },
+              "performance": {
+                "latency": 71.66295598781126,
+                "throughput": 1085.4852249146586,
+                "error_rate": 0.0008426785857083848
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413305",
+            "metrics": {
+              "duration": 5.89269161959757,
+              "resource_usage": {
+                "cpu": 65.08259459137746,
+                "memory": 68.63047157787089,
+                "network": 42.258365447692746
+              },
+              "performance": {
+                "latency": 83.74136780061106,
+                "throughput": 1104.9246955843005,
+                "error_rate": 0.000709451637839853
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413345",
+            "metrics": {
+              "duration": 8.371340743150629,
+              "resource_usage": {
+                "cpu": 77.79083653071437,
+                "memory": 67.26967902238735,
+                "network": 58.91703821772896
+              },
+              "performance": {
+                "latency": 84.3475401376897,
+                "throughput": 908.9287489505322,
+                "error_rate": 0.0010219848241845243
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413356",
+            "metrics": {
+              "duration": 8.540113543304745,
+              "resource_usage": {
+                "cpu": 45.73544082388693,
+                "memory": 65.9838959695215,
+                "network": 61.811949769426285
+              },
+              "performance": {
+                "latency": 75.54217388210975,
+                "throughput": 980.8351451478976,
+                "error_rate": 0.0010068896938210605
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 66.44749152763748,
+        "environment": "production"
+      },
+      {
+        "name": "blue_green_deployment",
+        "version": "1.1.0",
+        "status": "success",
+        "steps": {
+          "provision_new_environment": {
+            "name": "provision",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413368",
+            "metrics": {
+              "duration": 10.284750391178608,
+              "resource_usage": {
+                "cpu": 48.222491336899594,
+                "memory": 78.0514844588109,
+                "network": 39.32808362252272
+              },
+              "performance": {
+                "latency": 59.78172263177689,
+                "throughput": 900.7698442617695,
+                "error_rate": 0.0010224022645859503
+              }
+            }
+          },
+          "deploy_new_version": {
+            "name": "deploy",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413378",
+            "metrics": {
+              "duration": 9.292937819166124,
+              "resource_usage": {
+                "cpu": 64.65685472393041,
+                "memory": 62.685711294677105,
+                "network": 35.33568324685184
+              },
+              "performance": {
+                "latency": 70.51516357121963,
+                "throughput": 1102.2779038999768,
+                "error_rate": 0.0009121628217216643
+              }
+            }
+          },
+          "run_smoke_tests": {
+            "name": "smoke_test",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413388",
+            "metrics": {
+              "duration": 10.776184691310045,
+              "resource_usage": {
+                "cpu": 56.64427803971018,
+                "memory": 57.84175131287242,
+                "network": 54.13854903158065
+              },
+              "performance": {
+                "latency": 85.84820448724217,
+                "throughput": 986.3414351880108,
+                "error_rate": 0.000940144864447612
+              }
+            }
+          },
+          "switch_traffic": {
+            "name": "traffic_switch",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413398",
+            "metrics": {
+              "duration": 8.666086987622156,
+              "resource_usage": {
+                "cpu": 64.64663092662154,
+                "memory": 52.714507361260644,
+                "network": 44.98693036386227
+              },
+              "performance": {
+                "latency": 78.78200895210135,
+                "throughput": 922.8289245828712,
+                "error_rate": 0.0009977061596965252
+              }
+            }
+          },
+          "verify_new_environment": {
+            "name": "verify",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413408",
+            "metrics": {
+              "duration": 11.635251067975402,
+              "resource_usage": {
+                "cpu": 74.65487491661513,
+                "memory": 79.91611279012801,
+                "network": 32.15983649184126
+              },
+              "performance": {
+                "latency": 88.27940412626887,
+                "throughput": 1111.6313824818933,
+                "error_rate": 0.001139240969664487
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 210.58698209358758,
+        "environment": "production"
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "name": "health_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413420",
+            "metrics": {
+              "duration": 8.745787907811687,
+              "resource_usage": {
+                "cpu": 66.36138577358759,
+                "memory": 74.30224884786796,
+                "network": 45.89345173456919
+              },
+              "performance": {
+                "latency": 110.75838568394664,
+                "throughput": 1182.323279850146,
+                "error_rate": 0.0007286840664186324
+              }
+            }
+          },
+          "performance_check": {
+            "name": "performance_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413431",
+            "metrics": {
+              "duration": 10.419507243171784,
+              "resource_usage": {
+                "cpu": 43.4098380102815,
+                "memory": 72.20621516584939,
+                "network": 43.45956626668374
+              },
+              "performance": {
+                "latency": 108.44529195924468,
+                "throughput": 930.1702793839727,
+                "error_rate": 0.0009159860832353502
+              }
+            }
+          },
+          "integration_check": {
+            "name": "integration_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413441",
+            "metrics": {
+              "duration": 14.259613216781677,
+              "resource_usage": {
+                "cpu": 85.61921188355522,
+                "memory": 95.20031035443458,
+                "network": 40.719044987795485
+              },
+              "performance": {
+                "latency": 71.47730875004697,
+                "throughput": 1017.1209904336926,
+                "error_rate": 0.0008172789656300279
+              }
+            }
+          },
+          "security_check": {
+            "name": "security_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413451",
+            "metrics": {
+              "duration": 10.238761996853412,
+              "resource_usage": {
+                "cpu": 68.72744132013672,
+                "memory": 62.80797262777993,
+                "network": 54.29821629213914
+              },
+              "performance": {
+                "latency": 77.27288395907118,
+                "throughput": 1111.948286663528,
+                "error_rate": 0.0010902058116921767
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 146.80342797126895,
+        "environment": "production"
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "avg_response_time": 85.19173756102867,
+        "error_rate": 0.001087947250040639,
+        "throughput": 4171.838303448348
+      },
+      "resources": {
+        "cpu_usage": 78.8650431376349,
+        "memory_usage": 79.87297372060831,
+        "network_usage": 60.988391535564666
+      },
+      "stability": {
+        "crash_count": 0,
+        "recovery_time": 0,
+        "availability": 100.0
+      }
+    },
+    "status": "success",
+    "end_time": "2025-05-08T22:30:23.413468"
+  },
+  {
+    "id": "deploy_1746743423",
+    "version": "1.1.0",
+    "environment": "production",
+    "strategy": "canary",
+    "start_time": "2025-05-08T22:30:23.413471",
+    "phases": [
+      {
+        "name": "pre_flight",
+        "status": "success",
+        "checks": {
+          "config_validation": {
+            "name": "config_validation",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413474",
+            "metrics": {
+              "duration": 10.93434816301161,
+              "resource_usage": {
+                "cpu": 64.70453632767754,
+                "memory": 67.5052231598461,
+                "network": 39.145227170580746
+              },
+              "performance": {
+                "latency": 91.62922404804377,
+                "throughput": 958.6921089575451,
+                "error_rate": 0.0009394745863989984
+              }
+            }
+          },
+          "resource_check": {
+            "name": "resource_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413484",
+            "metrics": {
+              "duration": 10.378380112610857,
+              "resource_usage": {
+                "cpu": 46.26927115289656,
+                "memory": 80.61508928331018,
+                "network": 52.65363582142139
+              },
+              "performance": {
+                "latency": 86.48087663126704,
+                "throughput": 1107.0670937029704,
+                "error_rate": 0.0008234283731166866
+              }
+            }
+          },
+          "dependency_check": {
+            "name": "dependency_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413494",
+            "metrics": {
+              "duration": 11.433697690175286,
+              "resource_usage": {
+                "cpu": 62.90609312939072,
+                "memory": 63.31306563179458,
+                "network": 31.52067489084231
+              },
+              "performance": {
+                "latency": 113.17545380328201,
+                "throughput": 1098.0137398580077,
+                "error_rate": 0.0009357907697362374
+              }
+            }
+          },
+          "backup_verification": {
+            "name": "backup_verification",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413505",
+            "metrics": {
+              "duration": 12.351902216864339,
+              "resource_usage": {
+                "cpu": 50.60714836522225,
+                "memory": 73.22646087250104,
+                "network": 51.4805961578135
+              },
+              "performance": {
+                "latency": 62.13141169983436,
+                "throughput": 907.5236436143923,
+                "error_rate": 0.000787681948896318
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 86.93732880467012,
+        "environment": "production"
+      },
+      {
+        "name": "canary_deployment",
+        "version": "1.1.0",
+        "status": "success",
+        "steps": {
+          "deploy_10%": {
+            "name": "canary_10%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413517",
+            "metrics": {
+              "duration": 6.147058839246146,
+              "resource_usage": {
+                "cpu": 73.84610515999549,
+                "memory": 83.82959041006956,
+                "network": 46.74913951356262
+              },
+              "performance": {
+                "latency": 69.15789819895751,
+                "throughput": 897.295635444345,
+                "error_rate": 0.0013321605673308923
+              }
+            }
+          },
+          "deploy_30%": {
+            "name": "canary_30%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413527",
+            "metrics": {
+              "duration": 10.530753758533457,
+              "resource_usage": {
+                "cpu": 59.8234642098627,
+                "memory": 64.1793234160416,
+                "network": 41.56436112540438
+              },
+              "performance": {
+                "latency": 102.00195011165003,
+                "throughput": 1059.3399525811844,
+                "error_rate": 0.0009353752983638925
+              }
+            }
+          },
+          "deploy_50%": {
+            "name": "canary_50%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413538",
+            "metrics": {
+              "duration": 10.011646147361708,
+              "resource_usage": {
+                "cpu": 81.94055135406468,
+                "memory": 68.26156229462194,
+                "network": 54.279502687130986
+              },
+              "performance": {
+                "latency": 52.48703083579422,
+                "throughput": 973.3920970070868,
+                "error_rate": 0.0009756378667824194
+              }
+            }
+          },
+          "deploy_70%": {
+            "name": "canary_70%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413549",
+            "metrics": {
+              "duration": 7.171046382862375,
+              "resource_usage": {
+                "cpu": 72.02151428778762,
+                "memory": 72.10353351887123,
+                "network": 22.63595684177418
+              },
+              "performance": {
+                "latency": 74.7519352821425,
+                "throughput": 964.1638404565125,
+                "error_rate": 0.0011574848432003328
+              }
+            }
+          },
+          "deploy_90%": {
+            "name": "canary_90%",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413559",
+            "metrics": {
+              "duration": 9.81239448235169,
+              "resource_usage": {
+                "cpu": 77.62303475355179,
+                "memory": 78.06727869800875,
+                "network": 50.80014060919864
+              },
+              "performance": {
+                "latency": 71.4688152684976,
+                "throughput": 876.3476944898495,
+                "error_rate": 0.0007903300950805291
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 240.87485455679143,
+        "environment": "production"
+      },
+      {
+        "name": "post_deployment",
+        "status": "success",
+        "checks": {
+          "health_check": {
+            "name": "health_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413571",
+            "metrics": {
+              "duration": 10.490462581108995,
+              "resource_usage": {
+                "cpu": 58.96683308631277,
+                "memory": 60.90972989504304,
+                "network": 45.52500671243946
+              },
+              "performance": {
+                "latency": 83.9379847306503,
+                "throughput": 826.1344068438195,
+                "error_rate": 0.0012478114042621408
+              }
+            }
+          },
+          "performance_check": {
+            "name": "performance_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413581",
+            "metrics": {
+              "duration": 10.26554365452947,
+              "resource_usage": {
+                "cpu": 51.554012987008726,
+                "memory": 68.20150791117896,
+                "network": 53.561287802731094
+              },
+              "performance": {
+                "latency": 53.361695524561014,
+                "throughput": 965.1574907332074,
+                "error_rate": 0.0011158806192638857
+              }
+            }
+          },
+          "integration_check": {
+            "name": "integration_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413592",
+            "metrics": {
+              "duration": 12.491568083972806,
+              "resource_usage": {
+                "cpu": 62.43226645108706,
+                "memory": 77.13937516200073,
+                "network": 31.988168111587054
+              },
+              "performance": {
+                "latency": 87.37281892673819,
+                "throughput": 1127.0201059002554,
+                "error_rate": 0.00108546312743859
+              }
+            }
+          },
+          "security_check": {
+            "name": "security_check",
+            "status": "success",
+            "timestamp": "2025-05-08T22:30:23.413602",
+            "metrics": {
+              "duration": 5.405307887551581,
+              "resource_usage": {
+                "cpu": 63.91963153048491,
+                "memory": 74.08084469016713,
+                "network": 40.552793973463125
+              },
+              "performance": {
+                "latency": 78.59136317640045,
+                "throughput": 945.8378481754114,
+                "error_rate": 0.000999762330747244
+              }
+            }
+          }
+        },
+        "failures": [],
+        "duration": 150.2101311460057,
+        "environment": "production"
+      }
+    ],
+    "metrics": {
+      "performance": {
+        "avg_response_time": 82.18277033884442,
+        "error_rate": 0.0011032213552119008,
+        "throughput": 5214.196673075604
+      },
+      "resources": {
+        "cpu_usage": 74.6365754905171,
+        "memory_usage": 88.39892295530335,
+        "network_usage": 47.02307225322117
+      },
+      "stability": {
+        "crash_count": 0,
+        "recovery_time": 0,
+        "availability": 100.0
+      }
+    },
+    "status": "success",
+    "end_time": "2025-05-08T22:30:23.413619"
+  }
+]

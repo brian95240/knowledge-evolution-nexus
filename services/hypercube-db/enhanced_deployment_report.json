@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-05-08T22:30:23.413622",
+  "summary": {
+    "total_deployments": 8,
+    "successful_deployments": 7,
+    "failed_deployments": 1,
+    "rollbacks": 1
+  },
+  "by_environment": {
+    "staging": {
+      "total": 4,
+      "successful": 3,
+      "strategies": {
+        "blue_green": 2,
+        "canary": 2
+      }
+    },
+    "production": {
+      "total": 4,
+      "successful": 4,
+      "strategies": {
+        "blue_green": 2,
+        "canary": 2
+      }
+    }
+  },
+  "by_strategy": {
+    "blue_green": {
+      "total": 4,
+      "successful": 4,
+      "avg_duration": 387.06897167563164
+    },
+    "canary": {
+      "total": 4,
+      "successful": 3,
+      "avg_duration": 379.800984089963
+    }
+  },
+  "metrics": {
+    "average_duration": 383.4349778827973,
+    "success_rate": 87.5,
+    "rollback_rate": 12.5
+  }
+}
