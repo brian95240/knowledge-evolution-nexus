@@ -1,0 +1,161 @@
+version: '3.8'
+
+services:
+  ken-self-protection:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-self-protection
+    ports:
+      - "8003:8003"
+    environment:
+      - API_HOST=0.0.0.0
+      - API_PORT=8003
+      - DATABASE_URL=postgresql://ken_user:${POSTGRES_PASSWORD}@ken-postgres:5432/ken_db
+      - REDIS_URL=redis://ken-redis:6379/0
+      - ENCRYPTION_KEY=${ENCRYPTION_KEY}
+      - JWT_SECRET=${JWT_SECRET}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - OPENAI_API_BASE=${OPENAI_API_BASE}
+      
+      # Email configuration
+      - SMTP_SERVER=${SMTP_SERVER}
+      - SMTP_PORT=${SMTP_PORT}
+      - SENDER_EMAIL=${SENDER_EMAIL}
+      - SENDER_PASSWORD=${SENDER_PASSWORD}
+      
+      # SMS configuration (Twilio)
+      - TWILIO_ACCOUNT_SID=${TWILIO_ACCOUNT_SID}
+      - TWILIO_AUTH_TOKEN=${TWILIO_AUTH_TOKEN}
+      - TWILIO_FROM_PHONE=${TWILIO_FROM_PHONE}
+      
+      # Slack configuration
+      - SLACK_WEBHOOK_URL=${SLACK_WEBHOOK_URL}
+      
+      # Teams configuration
+      - TEAMS_WEBHOOK_URL=${TEAMS_WEBHOOK_URL}
+      
+      # Primary user configuration
+      - PRIMARY_EMAIL=${PRIMARY_EMAIL}
+      - PRIMARY_PHONE=${PRIMARY_PHONE}
+      - LEGAL_EMAIL=${LEGAL_EMAIL}
+      - FINANCIAL_EMAIL=${FINANCIAL_EMAIL}
+      
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - ./reports:/app/reports
+    depends_on:
+      - ken-postgres
+      - ken-redis
+    networks:
+      - ken-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  ken-postgres:
+    image: postgres:15-alpine
+    container_name: ken-postgres
+    environment:
+      - POSTGRES_DB=ken_db
+      - POSTGRES_USER=ken_user
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - ken-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ken_user -d ken_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  ken-redis:
+    image: redis:7-alpine
+    container_name: ken-redis
+    command: redis-server --appendonly yes --requirepass ${REDIS_PASSWORD}
+    volumes:
+      - redis_data:/data
+    networks:
+      - ken-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  ken-monitoring:
+    image: prom/prometheus:latest
+    container_name: ken-monitoring
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus_data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - ken-network
+    restart: unless-stopped
+
+  ken-grafana:
+    image: grafana/grafana:latest
+    container_name: ken-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD}
+    volumes:
+      - grafana_data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - ken-network
+    restart: unless-stopped
+
+  ken-nginx:
+    image: nginx:alpine
+    container_name: ken-nginx
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+      - ./nginx/ssl:/etc/nginx/ssl
+      - ./nginx/logs:/var/log/nginx
+    depends_on:
+      - ken-self-protection
+    networks:
+      - ken-network
+    restart: unless-stopped
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+  prometheus_data:
+    driver: local
+  grafana_data:
+    driver: local
+
+networks:
+  ken-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
