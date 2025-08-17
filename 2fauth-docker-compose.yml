@@ -1,0 +1,49 @@
+version: '3.8'
+
+services:
+  2fauth:
+    image: 2fauth/2fauth:latest
+    container_name: 2fauth
+    restart: unless-stopped
+    environment:
+      - APP_NAME=K.E.N. 2FAuth
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=http://localhost:8081
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=/srv/database/database.sqlite
+      - AUTHENTICATION_GUARD=web-guard
+      - WEBAUTHN_ENABLED=true
+      - TRUSTED_PROXIES=*
+      - LOG_CHANNEL=daily
+      - LOG_LEVEL=info
+      - CACHE_DRIVER=file
+      - SESSION_DRIVER=file
+    volumes:
+      - ./2fauth-data:/srv/database
+      - ./2fauth-storage:/var/www/html/storage
+    network_mode: host
+    ports:
+      - "8081:80"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:80/up"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # Optional: Database for better performance (PostgreSQL)
+  # 2fauth_db:
+  #   image: postgres:15
+  #   container_name: 2fauth_db
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: 2fauth
+  #     POSTGRES_USER: 2fauth
+  #     POSTGRES_PASSWORD: secure_password_here
+  #   volumes:
+  #     - ./2fauth-db-data:/var/lib/postgresql/data
+  #   network_mode: host
+  #   ports:
+  #     - "5433:5432"
+
