@@ -11,8 +11,9 @@ services:
       - "8004:8004"
     environment:
       - PYTHONPATH=/app
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - OPENAI_API_BASE=${OPENAI_API_BASE}
+      # REMOVED: K.E.N. uses self-contained models only
+      # - OPENAI_API_KEY=${OPENAI_API_KEY}  # REMOVED - No external AI dependencies
+      # - OPENAI_API_BASE=${OPENAI_API_BASE}  # REMOVED - No external AI dependencies
       - KEN_ENVIRONMENT=production
       - KEN_LOG_LEVEL=info
       - KEN_MAX_AGENTS=1000
@@ -127,8 +128,9 @@ services:
     restart: unless-stopped
     environment:
       - PYTHONPATH=/app
-      - OPENAI_API_KEY=${OPENAI_API_KEY}
-      - OPENAI_API_BASE=${OPENAI_API_BASE}
+      # REMOVED: K.E.N. uses self-contained models only
+      # - OPENAI_API_KEY=${OPENAI_API_KEY}  # REMOVED - No external AI dependencies
+      # - OPENAI_API_BASE=${OPENAI_API_BASE}  # REMOVED - No external AI dependencies
       - KEN_ENVIRONMENT=production
       - KEN_WORKER_TYPE=agent_generation
       - KEN_REDIS_URL=redis://:${KEN_AGENT_REDIS_PASSWORD:-ken_redis_secure_2024}@ken-agent-redis:6379

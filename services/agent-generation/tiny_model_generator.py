@@ -1,28 +1,199 @@
 #!/usr/bin/env python3
 """
-K.E.N. Tiny Model Generator v1.0
-Creates permanent, non-tokenized tiny AI models for autonomous agent operations
-Self-contained intelligence without external API dependencies
+K.E.N. Tiny Model Generator v2.0
+UPDATED: Now uses completely self-contained model engine
+No external AI dependencies - Pure K.E.N. intelligence
 """
 
 import asyncio
 import json
 import logging
-import pickle
-import numpy as np
-import torch
-import torch.nn as nn
-import torch.optim as optim
 from datetime import datetime, timedelta
 from typing import Dict, List, Optional, Any, Tuple
 from dataclasses import dataclass, asdict, field
 from enum import Enum
 import uuid
-import os
-from pathlib import Path
-import sqlite3
-import threading
-import time
+
+# Import self-contained model engine
+from self_contained_model_engine import (
+    SelfContainedModelEngine, SelfContainedArchitecture, IntelligenceSpecialty,
+    SelfContainedModel, SelfContainedModelConfig
+)
+
+# Legacy compatibility mappings
+class ModelArchitecture(Enum):
+    NANO = "nano"
+    MICRO = "micro"
+    TINY = "tiny"
+    SMALL = "small"
+    COMPACT = "compact"
+
+class ModelSpecialty(Enum):
+    LEGAL_REASONING = "legal_reasoning"
+    FINANCIAL_ANALYSIS = "financial_analysis"
+    STRATEGIC_PLANNING = "strategic_planning"
+    CRISIS_RESPONSE = "crisis_response"
+    TECHNICAL_ANALYSIS = "technical_analysis"
+    COMMUNICATION = "communication"
+    GENERAL_INTELLIGENCE = "general_intelligence"
+
+@dataclass
+class TinyModel:
+    """Legacy compatibility wrapper for SelfContainedModel"""
+    model_id: str
+    configuration: Dict[str, Any]
+    parameter_count: int
+    model_size_mb: float
+    accuracy_score: float
+    created_at: datetime
+    
+    # Intelligence metrics
+    mensa_score: float = 0.0
+    vertex_expertise_score: float = 0.0
+    chess_strategic_score: float = 0.0
+    transcendence_score: float = 0.0
+
+class TinyModelGenerator:
+    """
+    K.E.N. Tiny Model Generator v2.0
+    UPDATED: Now completely self-contained without external AI dependencies
+    """
+    
+    def __init__(self, config: Dict[str, Any]):
+        self.config = config
+        self.logger = logging.getLogger("TinyModelGenerator")
+        
+        # Initialize self-contained engine
+        self.self_contained_engine = SelfContainedModelEngine(config)
+        
+        # Legacy compatibility
+        self.generated_models: Dict[str, TinyModel] = {}
+        
+        self.logger.info("K.E.N. Tiny Model Generator v2.0 initialized (Self-Contained)")
+
+    async def generate_tiny_model(
+        self,
+        architecture: ModelArchitecture,
+        specialty: ModelSpecialty,
+        custom_config: Optional[Dict[str, Any]] = None
+    ) -> TinyModel:
+        """Generate tiny model using self-contained engine"""
+        
+        # Map legacy enums to new enums
+        arch_mapping = {
+            ModelArchitecture.NANO: SelfContainedArchitecture.NANO,
+            ModelArchitecture.MICRO: SelfContainedArchitecture.MICRO,
+            ModelArchitecture.TINY: SelfContainedArchitecture.TINY,
+            ModelArchitecture.SMALL: SelfContainedArchitecture.SMALL,
+            ModelArchitecture.COMPACT: SelfContainedArchitecture.COMPACT
+        }
+        
+        specialty_mapping = {
+            ModelSpecialty.LEGAL_REASONING: IntelligenceSpecialty.LEGAL_REASONING,
+            ModelSpecialty.FINANCIAL_ANALYSIS: IntelligenceSpecialty.FINANCIAL_ANALYSIS,
+            ModelSpecialty.STRATEGIC_PLANNING: IntelligenceSpecialty.STRATEGIC_PLANNING,
+            ModelSpecialty.CRISIS_RESPONSE: IntelligenceSpecialty.CRISIS_RESPONSE,
+            ModelSpecialty.TECHNICAL_ANALYSIS: IntelligenceSpecialty.TECHNICAL_ANALYSIS,
+            ModelSpecialty.COMMUNICATION: IntelligenceSpecialty.COMMUNICATION,
+            ModelSpecialty.GENERAL_INTELLIGENCE: IntelligenceSpecialty.GENERAL_INTELLIGENCE
+        }
+        
+        # Create model using self-contained engine
+        self_contained_model = await self.self_contained_engine.create_self_contained_model(
+            architecture=arch_mapping[architecture],
+            specialty=specialty_mapping[specialty],
+            custom_config=custom_config
+        )
+        
+        # Create legacy wrapper
+        tiny_model = TinyModel(
+            model_id=self_contained_model.model_id,
+            configuration={
+                'architecture': architecture.value,
+                'specialty': specialty.value,
+                'mensa_iq_level': self_contained_model.configuration.mensa_iq_level,
+                'vertex_expertise_depth': self_contained_model.configuration.vertex_expertise_depth,
+                'chess_strategic_depth': self_contained_model.configuration.chess_strategic_depth,
+                'transcendence_multiplier': self_contained_model.configuration.transcendence_multiplier
+            },
+            parameter_count=self_contained_model.parameter_count,
+            model_size_mb=self_contained_model.model_size_mb,
+            accuracy_score=self_contained_model.accuracy_score,
+            mensa_score=self_contained_model.mensa_score,
+            vertex_expertise_score=self_contained_model.vertex_expertise_score,
+            chess_strategic_score=self_contained_model.chess_strategic_score,
+            transcendence_score=self_contained_model.transcendence_score,
+            created_at=self_contained_model.created_at
+        )
+        
+        # Store for legacy compatibility
+        self.generated_models[tiny_model.model_id] = tiny_model
+        
+        self.logger.info(f"Tiny model generated (self-contained): {tiny_model.model_id}")
+        
+        return tiny_model
+
+    async def inference(self, model_id: str, input_text: str, task_type: Optional[str] = None) -> str:
+        """Perform inference using self-contained engine"""
+        
+        return await self.self_contained_engine.inference(model_id, input_text)
+
+    def get_available_models(self) -> List[Dict[str, Any]]:
+        """Get available models from self-contained engine"""
+        
+        return self.self_contained_engine.get_available_models()
+
+    def get_generation_stats(self) -> Dict[str, Any]:
+        """Get generation statistics from self-contained engine"""
+        
+        stats = self.self_contained_engine.get_generation_stats()
+        
+        # Add legacy compatibility info
+        stats.update({
+            'legacy_models_count': len(self.generated_models),
+            'self_contained_engine': True,
+            'external_ai_dependencies': False,
+            'ken_native_models': True
+        })
+        
+        return stats
+
+# Main execution for testing
+async def main():
+    """Main execution function for testing"""
+    
+    # Configuration
+    config = {
+        'models_dir': '/app/data/models',
+        'training_data_dir': '/app/data/training'
+    }
+    
+    # Initialize generator
+    generator = TinyModelGenerator(config)
+    
+    # Test model generation
+    legal_model = await generator.generate_tiny_model(
+        ModelArchitecture.SMALL,
+        ModelSpecialty.LEGAL_REASONING
+    )
+    
+    # Test inference
+    response = await generator.inference(
+        legal_model.model_id,
+        "Analyze the legal implications of this corporate structure"
+    )
+    
+    # Get statistics
+    stats = generator.get_generation_stats()
+    models = generator.get_available_models()
+    
+    print(f"Model generated: {legal_model.model_id}")
+    print(f"Response: {response}")
+    print(f"Stats: {stats}")
+    print(f"Available models: {len(models)}")
+
+if __name__ == "__main__":
+    asyncio.run(main())
 
 class ModelArchitecture(Enum):
     NANO = "nano"           # 1M parameters
