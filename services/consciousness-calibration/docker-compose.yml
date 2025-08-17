@@ -1,0 +1,92 @@
+version: '3.8'
+
+services:
+  consciousness-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-consciousness-api
+    ports:
+      - "8003:8003"
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=info
+      - API_HOST=0.0.0.0
+      - API_PORT=8003
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    networks:
+      - ken-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8003/api/v1/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  consciousness-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-consciousness-worker
+    command: python -m consciousness_worker
+    environment:
+      - PYTHONPATH=/app
+      - LOG_LEVEL=info
+      - WORKER_CONCURRENCY=4
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+    networks:
+      - ken-network
+    restart: unless-stopped
+    depends_on:
+      - consciousness-api
+
+  consciousness-db:
+    image: postgres:15-alpine
+    container_name: ken-consciousness-db
+    environment:
+      - POSTGRES_DB=consciousness_db
+      - POSTGRES_USER=ken_consciousness
+      - POSTGRES_PASSWORD=consciousness_secure_2024
+    volumes:
+      - consciousness_db_data:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    networks:
+      - ken-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ken_consciousness -d consciousness_db"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  redis-cache:
+    image: redis:7-alpine
+    container_name: ken-consciousness-redis
+    command: redis-server --appendonly yes --requirepass consciousness_cache_2024
+    volumes:
+      - consciousness_redis_data:/data
+    networks:
+      - ken-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "redis-cli", "--raw", "incr", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+networks:
+  ken-network:
+    driver: bridge
+    external: true
+
+volumes:
+  consciousness_db_data:
+    driver: local
+  consciousness_redis_data:
+    driver: local
+
