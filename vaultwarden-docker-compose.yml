@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: vaultwarden
+    restart: unless-stopped
+    environment:
+      - WEBSOCKET_ENABLED=true
+      - SIGNUPS_ALLOWED=true
+      - ADMIN_TOKEN=your_admin_token_here
+      - DOMAIN=https://vault.yourdomain.com
+    volumes:
+      - ./vw-data:/data
+    network_mode: host
+    ports:
+      - "8080:80"
+      - "3012:3012"
+
+  # Optional: Add a database for better performance
+  # postgres:
+  #   image: postgres:15
+  #   container_name: vaultwarden_db
+  #   restart: unless-stopped
+  #   environment:
+  #     POSTGRES_DB: vaultwarden
+  #     POSTGRES_USER: vaultwarden
+  #     POSTGRES_PASSWORD: your_db_password_here
+  #   volumes:
+  #     - ./db-data:/var/lib/postgresql/data
+  #   network_mode: host
+
