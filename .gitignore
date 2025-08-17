@@ -175,3 +175,86 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+
+# K.E.N. Privacy Suite Specific Exclusions
+services/privacy-suite/identity-generation/biometric_profiles/
+services/privacy-suite/data/identities/
+services/privacy-suite/data/credentials/
+services/privacy-suite/tor/
+services/privacy-suite/logs/
+services/privacy-suite/temp/
+services/privacy-suite/cache/
+
+# Cloudflare Bypass Sensitive Data
+services/privacy-suite/cloudflare-bypass/solving_keys/
+services/privacy-suite/cloudflare-bypass/sessions/
+services/privacy-suite/cloudflare-bypass/clearance_cache/
+services/privacy-suite/cloudflare-bypass/tls_fingerprints/
+
+# Privacy Suite Generated Data
+services/privacy-suite/identity-generation/generated_identities.json
+services/privacy-suite/core/stored_credentials.json
+services/privacy-suite/browser-automation/browser_sessions/
+services/privacy-suite/secure-os/vm_configs/
+services/privacy-suite/account-creation/creation_logs/
+
+# API Keys & Tokens (Privacy Suite)
+*api_key*
+*token*
+*secret*
+github_token.txt
+vaultwarden_admin_token
+2fauth_keys/
+solving_service_keys/
+
+# Docker Data Volumes (Privacy Suite)
+2fauth-data/
+vaultwarden-data/
+tor-data/
+redis-data/
+postgres-data/
+prometheus-data/
+grafana-data/
+docker_volumes/
+
+# Browser Automation Files
+selenium_logs/
+geckodriver.log
+chromedriver.log
+screenshots/
+browser_profiles/
+playwright_cache/
+
+# VM & Virtualization Files
+*.vmdk
+*.vdi
+*.qcow2
+vm_snapshots/
+tails_persistent/
+qubes_vms/
+
+# Biometric & Identity Files (Local Only)
+biometric_templates/
+identity_profiles/
+generated_personas/
+
+# TLS & Certificate Files
+tls_fingerprints/
+ssl_certificates/
+ca_bundles/
+
+# Monitoring & Performance Data
+bypass_statistics/
+performance_metrics/
+success_rate_logs/
+
+# Challenge Solving Cache
+captcha_solutions/
+turnstile_cache/
+challenge_history/
+
+# Session Management
+active_sessions/
+session_cookies/
+clearance_tokens/
+

@@ -1,0 +1,245 @@
+version: '3.8'
+
+services:
+  # K.E.N. Privacy Suite API
+  ken-privacy-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-privacy-api
+    ports:
+      - "8080:8080"
+    environment:
+      - VAULTWARDEN_URL=http://vaultwarden:80
+      - TWOFAUTH_URL=http://2fauth:8000
+      - TOR_PROXY_HOST=tor-proxy
+      - TOR_PROXY_PORT=9050
+      - TOR_CONTROL_PORT=9051
+    depends_on:
+      - vaultwarden
+      - 2fauth
+      - tor-proxy
+    volumes:
+      - ./identity-generation/biometric_profiles:/app/biometric_profiles:rw
+      - ./data/identities:/app/identities:rw
+      - /var/run/docker.sock:/var/run/docker.sock  # For VM management
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_add:
+      - NET_ADMIN  # For network operations
+    devices:
+      - /dev/kvm:/dev/kvm  # For VM acceleration
+
+  # Vaultwarden (Password Manager)
+  vaultwarden:
+    image: vaultwarden/server:latest
+    container_name: ken-vaultwarden
+    ports:
+      - "80:80"
+    environment:
+      - WEBSOCKET_ENABLED=true
+      - SIGNUPS_ALLOWED=true
+      - ADMIN_TOKEN=${VAULTWARDEN_ADMIN_TOKEN:-}
+      - DATABASE_URL=sqlite:///data/db.sqlite3
+    volumes:
+      - vaultwarden-data:/data
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+  # 2FAuth (2FA Manager)
+  2fauth:
+    image: 2fauth/2fauth:latest
+    container_name: ken-2fauth
+    ports:
+      - "8000:8000"
+    environment:
+      - APP_NAME=K.E.N.2FAuth
+      - APP_ENV=production
+      - APP_DEBUG=false
+      - APP_URL=http://localhost:8000
+      - DB_CONNECTION=sqlite
+      - DB_DATABASE=/srv/database/database.sqlite
+    volumes:
+      - 2fauth-data:/srv/database
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+  # Tor Proxy
+  tor-proxy:
+    image: dperson/torproxy:latest
+    container_name: ken-tor-proxy
+    ports:
+      - "9050:9050"  # SOCKS proxy
+      - "9051:9051"  # Control port
+    environment:
+      - TOR_NewCircuitPeriod=60
+      - TOR_MaxCircuitDirtiness=300
+      - TOR_ControlPort=9051
+      - TOR_SocksPort=9050
+    volumes:
+      - tor-data:/var/lib/tor
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+    cap_add:
+      - SETUID
+      - SETGID
+
+  # Selenium Grid Hub (for browser automation)
+  selenium-hub:
+    image: selenium/hub:4.15.0
+    container_name: ken-selenium-hub
+    ports:
+      - "4444:4444"
+    environment:
+      - GRID_MAX_SESSION=5
+      - GRID_BROWSER_TIMEOUT=300
+      - GRID_TIMEOUT=300
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+
+  # Firefox Node (with Tor support)
+  selenium-firefox:
+    image: selenium/node-firefox:4.15.0
+    container_name: ken-selenium-firefox
+    shm_size: 2gb
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=2
+      - NODE_MAX_SESSION=2
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+      - tor-proxy
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+
+  # Chrome Node (with Tor support)
+  selenium-chrome:
+    image: selenium/node-chrome:4.15.0
+    container_name: ken-selenium-chrome
+    shm_size: 2gb
+    environment:
+      - HUB_HOST=selenium-hub
+      - HUB_PORT=4444
+      - NODE_MAX_INSTANCES=2
+      - NODE_MAX_SESSION=2
+    volumes:
+      - /dev/shm:/dev/shm
+    depends_on:
+      - selenium-hub
+      - tor-proxy
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - seccomp:unconfined
+
+  # Redis (for caching and session management)
+  redis:
+    image: redis:7-alpine
+    container_name: ken-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+  # PostgreSQL (for persistent data)
+  postgres:
+    image: postgres:15-alpine
+    container_name: ken-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=ken_privacy
+      - POSTGRES_USER=ken_user
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD:-ken_secure_password}
+    volumes:
+      - postgres-data:/var/lib/postgresql/data
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+    security_opt:
+      - no-new-privileges:true
+
+  # Monitoring (Prometheus)
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: ken-prometheus
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./monitoring/prometheus.yml:/etc/prometheus/prometheus.yml
+      - prometheus-data:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--web.console.libraries=/etc/prometheus/console_libraries'
+      - '--web.console.templates=/etc/prometheus/consoles'
+      - '--storage.tsdb.retention.time=200h'
+      - '--web.enable-lifecycle'
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+
+  # Grafana (Dashboard)
+  grafana:
+    image: grafana/grafana:latest
+    container_name: ken-grafana
+    ports:
+      - "3000:3000"
+    environment:
+      - GF_SECURITY_ADMIN_PASSWORD=${GRAFANA_PASSWORD:-admin}
+    volumes:
+      - grafana-data:/var/lib/grafana
+      - ./monitoring/grafana/dashboards:/etc/grafana/provisioning/dashboards
+      - ./monitoring/grafana/datasources:/etc/grafana/provisioning/datasources
+    networks:
+      - ken-privacy-network
+    restart: unless-stopped
+
+networks:
+  ken-privacy-network:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 172.20.0.0/16
+
+volumes:
+  vaultwarden-data:
+    driver: local
+  2fauth-data:
+    driver: local
+  tor-data:
+    driver: local
+  redis-data:
+    driver: local
+  postgres-data:
+    driver: local
+  prometheus-data:
+    driver: local
+  grafana-data:
+    driver: local
+

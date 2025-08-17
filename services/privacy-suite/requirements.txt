@@ -1,0 +1,141 @@
+# K.E.N. Privacy Suite Requirements
+
+# Core Framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+pydantic==2.5.0
+python-multipart==0.0.6
+
+# Async Support
+aiohttp==3.9.1
+aiofiles==23.2.1
+asyncio-mqtt==0.16.1
+
+# Browser Automation
+selenium==4.15.2
+undetected-chromedriver==3.5.4
+playwright==1.40.0
+requests-html==0.10.0
+
+# Anti-Fingerprinting
+fake-useragent==1.4.0
+user-agents==2.2.0
+python-anticaptcha==0.7.1
+
+# Identity Generation
+faker==20.1.0
+names==0.3.0
+phonenumbers==8.13.26
+
+# Cryptography & Security
+cryptography==41.0.8
+bcrypt==4.1.2
+passlib[bcrypt]==1.7.4
+python-jose[cryptography]==3.3.0
+
+# Database & Storage
+sqlalchemy==2.0.23
+alembic==1.13.1
+redis==5.0.1
+psycopg2-binary==2.9.9
+
+# HTTP Clients
+httpx==0.25.2
+requests==2.31.0
+aiohttp-socks==0.8.4
+
+# Image Processing
+Pillow==10.1.0
+opencv-python-headless==4.8.1.78
+qrcode[pil]==7.4.2
+
+# Data Processing
+pandas==2.1.4
+numpy==1.25.2
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# Monitoring & Logging
+prometheus-client==0.19.0
+structlog==23.2.0
+python-json-logger==2.0.7
+
+# Configuration
+python-dotenv==1.0.0
+pyyaml==6.0.1
+toml==0.10.2
+
+# Development & Testing
+pytest==7.4.3
+pytest-asyncio==0.21.1
+pytest-mock==3.12.0
+black==23.11.0
+flake8==6.1.0
+mypy==1.7.1
+
+# Tor Integration
+stem==1.8.2
+pysocks==1.7.1
+torpy==1.1.6
+
+# VM Management
+libvirt-python==9.8.0
+paramiko==3.4.0
+fabric==3.2.2
+
+# Email Integration
+imapclient==2.3.1
+email-validator==2.1.0
+premailer==3.10.0
+
+# Phone/SMS Integration
+twilio==8.10.3
+vonage==3.14.0
+
+# Financial Integration (Privacy.com simulation)
+stripe==7.8.0
+plaid-python==11.0.0
+
+# Biometric Processing (Simulated)
+face-recognition==1.3.0
+fingerprint-enhancer==0.1.1
+
+# Utility Libraries
+python-dateutil==2.8.2
+pytz==2023.3
+click==8.1.7
+rich==13.7.0
+tqdm==4.66.1
+
+# API Integration
+openai==1.3.7
+anthropic==0.7.8
+
+# Network Security
+python-nmap==0.7.1
+scapy==2.5.0
+
+# File Processing
+python-magic==0.4.27
+pypdf2==3.0.1
+python-docx==1.1.0
+
+# Scheduling
+apscheduler==3.10.4
+celery==5.3.4
+
+# Caching
+diskcache==5.6.3
+cachetools==5.3.2
+
+# Cloudflare Bypass Module
+curl-cffi==0.5.10
+tls-client==0.2.2
+undetected-chromedriver==3.5.4
+playwright==1.40.0
+selenium-stealth==1.0.6
+ja3-fingerprint==0.1.0
+python-anticaptcha==0.7.1
+2captcha-python==1.1.3
+capmonster-python==1.0.0
+
