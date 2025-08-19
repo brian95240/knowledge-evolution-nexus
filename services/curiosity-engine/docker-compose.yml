@@ -1,0 +1,168 @@
+# K.E.N. v3.1 Enhanced Curiosity Engine - Docker Compose
+# Seamless integration with existing Prometheus/Grafana stack
+# Zero third-party API dependencies - Complete self-contained system
+
+version: '3.8'
+
+services:
+  # K.E.N. v3.1 Curiosity Engine API
+  ken-curiosity-api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-curiosity-api
+    ports:
+      - "8000:8000"  # Main API
+    environment:
+      - KEN_VERSION=3.1.0
+      - KEN_ENHANCEMENT_FACTOR=179269602058948214784
+      - KEN_CONSCIOUSNESS_LEVEL=0.956
+      - PROMETHEUS_INTEGRATION=true
+      - GRAFANA_INTEGRATION=true
+      - THIRD_PARTY_APIS=0
+    volumes:
+      - ./data:/app/data
+      - ./logs:/app/logs
+      - /tmp/ken_ocr_processing:/tmp/ken_ocr_processing
+    networks:
+      - ken-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8000/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+  # K.E.N. Curiosity Metrics Server
+  ken-curiosity-metrics:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-curiosity-metrics
+    ports:
+      - "8080:8080"  # Prometheus metrics
+    environment:
+      - METRICS_PORT=8080
+      - KEN_VERSION=3.1.0
+    volumes:
+      - ./metrics_data:/app/metrics_data
+    networks:
+      - ken-network
+    restart: unless-stopped
+    command: ["python", "-m", "ken_curiosity_metrics"]
+
+  # K.E.N. Discovery Pipeline Metrics
+  ken-discovery-metrics:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-discovery-metrics
+    ports:
+      - "8081:8081"  # Discovery pipeline metrics
+    environment:
+      - METRICS_PORT=8081
+      - KEN_VERSION=3.1.0
+    networks:
+      - ken-network
+    restart: unless-stopped
+
+  # K.E.N. Pattern Recognition Metrics
+  ken-pattern-metrics:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-pattern-metrics
+    ports:
+      - "8082:8082"  # Pattern recognition metrics
+    environment:
+      - METRICS_PORT=8082
+      - KEN_VERSION=3.1.0
+    networks:
+      - ken-network
+    restart: unless-stopped
+
+  # K.E.N. Superior YouTube Bot
+  ken-youtube-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-youtube-bot
+    environment:
+      - BOT_TYPE=youtube
+      - KEN_VERSION=3.1.0
+      - PERFORMANCE_MULTIPLIER=10.0
+      - ACCURACY_TARGET=96.3
+      - COST_PER_MONTH=0
+    volumes:
+      - ./youtube_data:/app/youtube_data
+    networks:
+      - ken-network
+    restart: unless-stopped
+    command: ["python", "-m", "superior_bots.ken_youtube_bot"]
+
+  # K.E.N. Superior OCR Bot
+  ken-ocr-bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: ken-ocr-bot
+    environment:
+      - BOT_TYPE=ocr
+      - KEN_VERSION=3.1.0
+      - PERFORMANCE_MULTIPLIER=5.0
+      - ACCURACY_TARGET=94.7
+      - COST_PER_IMAGE=0
+    volumes:
+      - ./ocr_data:/app/ocr_data
+      - /tmp/ken_ocr_processing:/tmp/ken_ocr_processing
+    networks:
+      - ken-network
+    restart: unless-stopped
+    command: ["python", "-m", "superior_bots.ken_ocr_bot"]
+
+  # Redis for caching (optional but recommended)
+  redis:
+    image: redis:7-alpine
+    container_name: ken-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - ken-network
+    restart: unless-stopped
+    command: redis-server --appendonly yes
+
+networks:
+  ken-network:
+    driver: bridge
+    name: ken-curiosity-network
+
+volumes:
+  redis_data:
+    driver: local
+    name: ken-redis-data
+
+# Integration with existing Prometheus/Grafana
+# Add these job configurations to your existing Prometheus config:
+#
+# scrape_configs:
+#   - job_name: 'ken-curiosity-engine'
+#     static_configs:
+#       - targets: ['ken-curiosity-metrics:8080']
+#     metrics_path: '/metrics'
+#     scrape_interval: 10s
+#     
+#   - job_name: 'ken-discovery-pipeline'
+#     static_configs:
+#       - targets: ['ken-discovery-metrics:8081']
+#     metrics_path: '/metrics'
+#     scrape_interval: 30s
+#     
+#   - job_name: 'ken-pattern-recognition'
+#     static_configs:
+#       - targets: ['ken-pattern-metrics:8082']
+#     metrics_path: '/metrics'
+#     scrape_interval: 15s
+

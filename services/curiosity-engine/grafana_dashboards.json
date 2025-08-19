@@ -1,0 +1,460 @@
+{
+  "dashboards": [
+    {
+      "dashboard": {
+        "id": null,
+        "title": "K.E.N. v3.1 Curiosity Engine Overview",
+        "tags": ["ken", "curiosity", "v3.1"],
+        "timezone": "browser",
+        "panels": [
+          {
+            "id": 1,
+            "title": "🧠 Enhancement Factor",
+            "type": "stat",
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+            "targets": [
+              {
+                "expr": "ken_enhancement_factor_current",
+                "legendFormat": "Enhancement Factor",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "color": {"mode": "palette-classic"},
+                "custom": {
+                  "displayMode": "basic",
+                  "orientation": "horizontal"
+                },
+                "mappings": [],
+                "thresholds": {
+                  "steps": [
+                    {"color": "green", "value": null},
+                    {"color": "red", "value": 80}
+                  ]
+                },
+                "unit": "scientific"
+              }
+            },
+            "options": {
+              "reduceOptions": {
+                "values": false,
+                "calcs": ["lastNotNull"],
+                "fields": ""
+              },
+              "orientation": "auto",
+              "textMode": "auto",
+              "colorMode": "value",
+              "graphMode": "area",
+              "justifyMode": "auto"
+            }
+          },
+          {
+            "id": 2,
+            "title": "🔍 Discovery Rate (per minute)",
+            "type": "graph",
+            "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+            "targets": [
+              {
+                "expr": "rate(ken_curiosity_discoveries_total[5m]) * 60",
+                "legendFormat": "Discoveries/min",
+                "refId": "A"
+              }
+            ],
+            "yAxes": [
+              {
+                "label": "Discoveries per minute",
+                "min": 0
+              }
+            ],
+            "xAxis": {
+              "show": true
+            },
+            "legend": {
+              "show": true,
+              "values": true,
+              "current": true,
+              "max": true,
+              "avg": true
+            }
+          },
+          {
+            "id": 3,
+            "title": "🎯 Pattern Recognition Rate",
+            "type": "graph",
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 8},
+            "targets": [
+              {
+                "expr": "ken_pattern_recognition_rate",
+                "legendFormat": "Patterns/sec",
+                "refId": "A"
+              }
+            ],
+            "yAxes": [
+              {
+                "label": "Patterns per second",
+                "min": 0
+              }
+            ]
+          },
+          {
+            "id": 4,
+            "title": "📊 Discovery Queue Depth",
+            "type": "graph",
+            "gridPos": {"h": 8, "w": 12, "x": 12, "y": 8},
+            "targets": [
+              {
+                "expr": "ken_discovery_queue_depth",
+                "legendFormat": "Queue Items",
+                "refId": "A"
+              }
+            ],
+            "yAxes": [
+              {
+                "label": "Queue depth",
+                "min": 0
+              }
+            ]
+          },
+          {
+            "id": 5,
+            "title": "🧠 Consciousness Awareness Index",
+            "type": "gauge",
+            "gridPos": {"h": 8, "w": 8, "x": 0, "y": 16},
+            "targets": [
+              {
+                "expr": "ken_consciousness_awareness_index",
+                "legendFormat": "Awareness Level",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "min": 0,
+                "max": 1,
+                "unit": "percentunit",
+                "thresholds": {
+                  "steps": [
+                    {"color": "red", "value": 0},
+                    {"color": "yellow", "value": 0.7},
+                    {"color": "green", "value": 0.9}
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": 6,
+            "title": "📈 Ratio Analysis Composite Score",
+            "type": "gauge",
+            "gridPos": {"h": 8, "w": 8, "x": 8, "y": 16},
+            "targets": [
+              {
+                "expr": "ken_ratio_analysis_composite_score",
+                "legendFormat": "Composite Score",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "min": 0,
+                "max": 1,
+                "unit": "percentunit",
+                "thresholds": {
+                  "steps": [
+                    {"color": "red", "value": 0},
+                    {"color": "yellow", "value": 0.8},
+                    {"color": "green", "value": 0.9}
+                  ]
+                }
+              }
+            }
+          },
+          {
+            "id": 7,
+            "title": "🚀 System Health Status",
+            "type": "stat",
+            "gridPos": {"h": 8, "w": 8, "x": 16, "y": 16},
+            "targets": [
+              {
+                "expr": "ken_system_health_status",
+                "legendFormat": "Health Status",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "mappings": [
+                  {"options": {"0": {"text": "Healthy", "color": "green"}}, "type": "value"},
+                  {"options": {"1": {"text": "Degraded", "color": "yellow"}}, "type": "value"},
+                  {"options": {"2": {"text": "Critical", "color": "red"}}, "type": "value"},
+                  {"options": {"3": {"text": "Maintenance", "color": "blue"}}, "type": "value"}
+                ]
+              }
+            }
+          }
+        ],
+        "time": {
+          "from": "now-1h",
+          "to": "now"
+        },
+        "refresh": "10s",
+        "schemaVersion": 27,
+        "version": 1
+      }
+    },
+    {
+      "dashboard": {
+        "id": null,
+        "title": "K.E.N. v3.1 Superior Bot Performance",
+        "tags": ["ken", "bots", "performance", "api-comparison"],
+        "timezone": "browser",
+        "panels": [
+          {
+            "id": 1,
+            "title": "📺 YouTube Discovery Bot vs API",
+            "type": "table",
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+            "targets": [
+              {
+                "expr": "ken_youtube_discovery_rate",
+                "legendFormat": "K.E.N. Bot Rate",
+                "refId": "A"
+              }
+            ],
+            "transformations": [
+              {
+                "id": "organize",
+                "options": {
+                  "excludeByName": {},
+                  "indexByName": {},
+                  "renameByName": {
+                    "Value": "Discoveries/min"
+                  }
+                }
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "custom": {
+                  "displayMode": "color-background"
+                },
+                "mappings": [
+                  {
+                    "options": {
+                      "from": 25,
+                      "to": 60,
+                      "result": {
+                        "color": "green",
+                        "text": "10x Faster than API"
+                      }
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            }
+          },
+          {
+            "id": 2,
+            "title": "🔍 OCR Processing: K.E.N. vs Spider.cloud",
+            "type": "stat",
+            "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+            "targets": [
+              {
+                "expr": "ken_ocr_processing_accuracy",
+                "legendFormat": "K.E.N. OCR Accuracy",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "unit": "percent",
+                "min": 0,
+                "max": 100,
+                "thresholds": {
+                  "steps": [
+                    {"color": "red", "value": 0},
+                    {"color": "yellow", "value": 89},
+                    {"color": "green", "value": 94}
+                  ]
+                }
+              }
+            },
+            "options": {
+              "colorMode": "background",
+              "graphMode": "area",
+              "justifyMode": "center",
+              "orientation": "horizontal",
+              "reduceOptions": {
+                "calcs": ["lastNotNull"],
+                "fields": "",
+                "values": false
+              },
+              "text": {
+                "titleSize": 16,
+                "valueSize": 24
+              },
+              "textMode": "value_and_name"
+            }
+          },
+          {
+            "id": 3,
+            "title": "💰 Cost Comparison: K.E.N. vs External APIs",
+            "type": "bargauge",
+            "gridPos": {"h": 8, "w": 24, "x": 0, "y": 8},
+            "targets": [
+              {
+                "expr": "0",
+                "legendFormat": "K.E.N. Bots Cost",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "unit": "currencyUSD",
+                "min": 0,
+                "max": 1000,
+                "thresholds": {
+                  "steps": [
+                    {"color": "green", "value": 0},
+                    {"color": "yellow", "value": 100},
+                    {"color": "red", "value": 500}
+                  ]
+                }
+              },
+              "overrides": [
+                {
+                  "matcher": {"id": "byName", "options": "K.E.N. Bots Cost"},
+                  "properties": [
+                    {"id": "displayName", "value": "K.E.N. Bots: $0/month"},
+                    {"id": "color", "value": {"mode": "fixed", "fixedColor": "green"}}
+                  ]
+                }
+              ]
+            },
+            "options": {
+              "reduceOptions": {
+                "values": false,
+                "calcs": ["lastNotNull"],
+                "fields": ""
+              },
+              "orientation": "horizontal",
+              "displayMode": "gradient",
+              "showUnfilled": true
+            }
+          },
+          {
+            "id": 4,
+            "title": "⚡ Performance Metrics Comparison",
+            "type": "table",
+            "gridPos": {"h": 8, "w": 24, "x": 0, "y": 16},
+            "targets": [
+              {
+                "expr": "ken_bot_performance_comparison",
+                "legendFormat": "Performance Data",
+                "refId": "A"
+              }
+            ],
+            "transformations": [
+              {
+                "id": "organize",
+                "options": {
+                  "excludeByName": {},
+                  "indexByName": {},
+                  "renameByName": {}
+                }
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "custom": {
+                  "displayMode": "color-background",
+                  "align": "center"
+                }
+              }
+            }
+          }
+        ],
+        "time": {
+          "from": "now-6h",
+          "to": "now"
+        },
+        "refresh": "30s",
+        "schemaVersion": 27,
+        "version": 1
+      }
+    },
+    {
+      "dashboard": {
+        "id": null,
+        "title": "K.E.N. v3.1 Discovery Pipeline Performance",
+        "tags": ["ken", "discovery", "pipeline"],
+        "timezone": "browser",
+        "panels": [
+          {
+            "id": 1,
+            "title": "🔄 Pipeline Throughput",
+            "type": "graph",
+            "gridPos": {"h": 8, "w": 12, "x": 0, "y": 0},
+            "targets": [
+              {
+                "expr": "ken_pipeline_throughput_items_per_second",
+                "legendFormat": "Items/sec",
+                "refId": "A"
+              }
+            ]
+          },
+          {
+            "id": 2,
+            "title": "📋 Pipeline Backlog",
+            "type": "graph",
+            "gridPos": {"h": 8, "w": 12, "x": 12, "y": 0},
+            "targets": [
+              {
+                "expr": "ken_pipeline_backlog_items",
+                "legendFormat": "Backlog Items",
+                "refId": "A"
+              }
+            ]
+          },
+          {
+            "id": 3,
+            "title": "✅ Pipeline Success Rate",
+            "type": "gauge",
+            "gridPos": {"h": 8, "w": 24, "x": 0, "y": 8},
+            "targets": [
+              {
+                "expr": "ken_pipeline_success_rate",
+                "legendFormat": "Success Rate",
+                "refId": "A"
+              }
+            ],
+            "fieldConfig": {
+              "defaults": {
+                "unit": "percentunit",
+                "min": 0,
+                "max": 1,
+                "thresholds": {
+                  "steps": [
+                    {"color": "red", "value": 0},
+                    {"color": "yellow", "value": 0.8},
+                    {"color": "green", "value": 0.95}
+                  ]
+                }
+              }
+            }
+          }
+        ],
+        "time": {
+          "from": "now-1h",
+          "to": "now"
+        },
+        "refresh": "15s",
+        "schemaVersion": 27,
+        "version": 1
+      }
+    }
+  ]
+}
+

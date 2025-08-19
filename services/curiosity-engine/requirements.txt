@@ -1,0 +1,119 @@
+# K.E.N. v3.1 Enhanced Curiosity Engine - Python Requirements
+# Zero third-party API dependencies - Only open-source libraries
+
+# FastAPI and web framework
+fastapi==0.104.1
+uvicorn[standard]==0.24.0
+websockets==12.0
+
+# Prometheus metrics integration
+prometheus-client==0.19.0
+prometheus-fastapi-instrumentator==6.1.0
+
+# HTTP client for RSS feeds and scraping
+aiohttp==3.9.1
+requests==2.31.0
+
+# RSS feed parsing and web scraping
+feedparser==6.0.10
+beautifulsoup4==4.12.2
+lxml==4.9.3
+
+# OCR and image processing (no external APIs)
+pytesseract==0.3.10
+opencv-python==4.8.1.78
+Pillow==10.1.0
+numpy==1.25.2
+
+# Natural Language Processing (open-source)
+spacy==3.7.2
+nltk==3.8.1
+
+# Data processing and analysis
+pandas==2.1.4
+scikit-learn==1.3.2
+
+# Network analysis for pattern recognition
+networkx==3.2.1
+
+# Async and concurrency
+asyncio-mqtt==0.16.1
+
+# Configuration and environment
+python-dotenv==1.0.0
+pydantic==2.5.1
+pydantic-settings==2.1.0
+
+# Logging and monitoring
+structlog==23.2.0
+
+# Testing and development
+pytest==7.4.3
+pytest-asyncio==0.21.1
+
+# Caching (optional)
+redis==5.0.1
+
+# Mathematical computations
+scipy==1.11.4
+
+# Date and time handling
+python-dateutil==2.8.2
+
+# JSON handling
+orjson==3.9.10
+
+# File handling and compression
+pathlib2==2.3.7
+
+# Regular expressions (enhanced)
+regex==2023.10.3
+
+# Hash functions
+hashlib2==1.0.1
+
+# Image format support
+imageio==2.33.1
+
+# Audio processing (for future enhancements)
+librosa==0.10.1
+
+# Text processing
+textblob==0.17.1
+
+# Markdown processing
+markdown==3.5.1
+
+# YAML configuration
+PyYAML==6.0.1
+
+# Progress bars and CLI tools
+tqdm==4.66.1
+click==8.1.7
+
+# Memory profiling and optimization
+memory-profiler==0.61.0
+psutil==5.9.6
+
+# Timezone handling
+pytz==2023.3
+
+# URL parsing and validation
+validators==0.22.0
+
+# File type detection
+python-magic==0.4.27
+
+# Compression
+zstandard==0.22.0
+
+# Performance monitoring
+py-spy==0.3.14
+
+# Note: Zero external AI APIs required
+# - No OpenAI dependencies
+# - No Anthropic dependencies  
+# - No Google API dependencies
+# - No Spider.cloud dependencies
+# - Complete self-contained system with superior performance
+

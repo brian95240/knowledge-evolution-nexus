@@ -1,0 +1,57 @@
+# K.E.N. v3.1 Prometheus Integration Configuration
+# Seamless integration with existing Prometheus/Grafana stack
+# Existing: http://5.161.226.153:9090 (Prometheus), http://5.161.226.153:3000 (Grafana)
+
+# Add to existing /etc/prometheus/prometheus.yml
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+# K.E.N. v3.1 Enhanced Curiosity Engine Jobs
+scrape_configs:
+  # Existing jobs preserved - ADD these new jobs
+  - job_name: 'ken-curiosity-engine'
+    static_configs:
+      - targets: ['localhost:8080']
+    metrics_path: '/metrics'
+    scrape_interval: 10s
+    scrape_timeout: 5s
+    honor_labels: true
+    params:
+      format: ['prometheus']
+    
+  - job_name: 'ken-discovery-pipeline'
+    static_configs:
+      - targets: ['localhost:8081']
+    metrics_path: '/metrics'
+    scrape_interval: 30s
+    scrape_timeout: 10s
+    honor_labels: true
+    
+  - job_name: 'ken-pattern-recognition'
+    static_configs:
+      - targets: ['localhost:8082']
+    metrics_path: '/metrics'
+    scrape_interval: 15s
+    scrape_timeout: 8s
+    honor_labels: true
+    
+  - job_name: 'ken-consciousness-engine'
+    static_configs:
+      - targets: ['localhost:8083']
+    metrics_path: '/metrics'
+    scrape_interval: 20s
+    scrape_timeout: 10s
+    honor_labels: true
+
+# K.E.N. v3.1 Alerting Rules
+rule_files:
+  - "ken_curiosity_alerts.yml"
+
+# Alert Manager Configuration (if using)
+alerting:
+  alertmanagers:
+    - static_configs:
+        - targets:
+          - alertmanager:9093
+
